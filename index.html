@@ -1,308 +1,215 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timeline Kerja PKM "CareerConnect"</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Proyek PKM "CareerConnect"</title>
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f8f9fa;
-            color: #343a40;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-        header {
-            text-align: center;
-            border-bottom: 3px solid #007bff;
-            padding-bottom: 20px;
-            margin-bottom: 20px;
-        }
-        h1 {
-            color: #0056b3;
-            font-size: 2.5em;
-            margin-bottom: 0;
-        }
-        .subtitle {
-            font-size: 1.1em;
-            color: #6c757d;
-            margin-top: 10px;
-        }
-        .phase {
-            margin-bottom: 45px;
-        }
-        .phase-header {
-            background-color: #e9ecef;
-            padding: 15px 20px;
-            border-radius: 8px;
-            border-left: 6px solid #007bff;
-            margin-bottom: 25px;
-        }
-        .phase-header h2 {
-            margin: 0;
-            color: #0056b3;
-            font-size: 1.8em;
-        }
-        .phase-header p {
-            margin: 5px 0 0;
-            font-style: italic;
-            color: #495057;
-        }
-        .table-container {
-            overflow-x: auto;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            padding: 15px;
-            border: 1px solid #dee2e6;
-            text-align: left;
-            vertical-align: top;
-        }
-        thead {
-            background-color: #007bff;
-            color: #ffffff;
-            font-size: 1.1em;
-        }
-        tbody tr:nth-child(even) {
-            background-color: #f8f9fa;
-        }
-        tbody tr:hover {
-            background-color: #e9ecef;
-            cursor: pointer;
-        }
-        td:first-child {
-            font-weight: bold;
-            color: #0056b3;
-            white-space: nowrap;
-        }
-        td:last-child {
-            background-color: rgba(255, 235, 59, 0.15); /* Highlight for chairman's role */
-        }
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 0.9em;
-            color: #6c757d;
-        }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          Helvetica, Arial, sans-serif;
+        background-color: #f0f2f5;
+        color: #1c1e21;
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        max-width: 1200px;
+        margin: auto;
+      }
+      header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      h1 {
+        color: #0056b3;
+        font-size: 2.8em;
+      }
+      .subtitle {
+        font-size: 1.2em;
+        color: #606770;
+      }
+      .timeline-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+      }
+      .card {
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        padding: 25px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      }
+      .card-header {
+        border-bottom: 1px solid #dddfe2;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+      }
+      .card-header h2 {
+        margin: 0;
+        color: #0056b3;
+        font-size: 1.5em;
+      }
+      .card-header .date-range {
+        font-size: 0.9em;
+        color: #606770;
+        font-weight: 600;
+      }
+      .card-content p {
+        margin: 0 0 20px 0;
+        line-height: 1.5;
+      }
+      .card-link {
+        display: inline-block;
+        background-color: #007bff;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background-color 0.2s ease;
+      }
+      .card-link:hover {
+        background-color: #0056b3;
+      }
+      footer {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 0.9em;
+        color: #6c757d;
+      }
+      .team-members {
+        text-align: center;
+        margin-bottom: 30px;
+        padding: 15px;
+        background-color: #e9ecef;
+        border-radius: 8px;
+      }
+      .team-members h3 {
+        margin-top: 0;
+        color: #0056b3;
+      }
+      .team-members p {
+        margin-bottom: 0;
+        line-height: 1.8;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <div class="container">
-        <header>
-            <h1>Timeline Kerja PKM "CareerConnect"</h1>
-            <p class="subtitle">Timeline kerja final (18 Hari) untuk Koordinator Utama (ArdilanS). Target: Finalisasi Proposal sebelum <strong>18 Oktober 2025</strong>.</p>
-        </header>
+      <header>
+        <h1>Dashboard Proyek PKM "CareerConnect"</h1>
+        <p class="subtitle">
+          Navigasi utama untuk memantau setiap tahap pengembangan dan
+          pelaksanaan proyek.
+        </p>
+      </header>
 
-        <div class="phase">
-            <div class="phase-header">
-                <h2>FASE 1: Pengumpulan Data & Legalitas Awal</h2>
-                <p><strong>Tujuan:</strong> Menyelesaikan semua perizinan awal dan draf konsep teknis (1 Oktober – 7 Oktober).</p>
-            </div>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Tanggal</th>
-                            <th>Tugas Kritis</th>
-                            <th>Penanggung Jawab</th>
-                            <th>Deliverable (Hasil yang Harus Ada)</th>
-                            <th>Peran Anda (Ketua)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1 Okt (Hari 1)</td>
-                            <td>Kick-off Meeting & Delegasi</td>
-                            <td>Anda (Ketua) & Seluruh Tim</td>
-                            <td>Notula Rapat & Pembagian Tugas Final disepakati.</td>
-                            <td>Pimpin rapat dan setujui timeline ini.</td>
-                        </tr>
-                        <tr>
-                            <td>2 Okt (Hari 2)</td>
-                            <td>Pengajuan IA & Riset Awal</td>
-                            <td>Musa & ~ tnavcky</td>
-                            <td>Konfirmasi pengajuan surat IA ke Siskerma. Hasil Riset Awal Kebutuhan Siswa (data masalah).</td>
-                            <td>Pastikan Musa & tnavcky bergerak cepat.</td>
-                        </tr>
-                        <tr>
-                            <td>3 Okt (Hari 3)</td>
-                            <td>Rancangan Teknis Awal</td>
-                            <td>Jidan N. TI11 & Azaria B. 005</td>
-                            <td>Arsitektur Sistem Web App (Database Diagram) dan Sketsa UI/UX (Wireframe Kasar).</td>
-                            <td>Minta review cepat Arsitektur Sistem.</td>
-                        </tr>
-                        <tr>
-                            <td>4 Okt (Hari 4)</td>
-                            <td>Draf Kerjasama & Konten</td>
-                            <td>Nasrul & Ridho TI</td>
-                            <td>Draf Kerjasama 1 Lembar (tanpa tanda kuning). Dummy Konten Awal (5 contoh Q&A).</td>
-                            <td>Kumpulkan draf Kerjasama untuk review pertama.</td>
-                        </tr>
-                        <tr>
-                            <td>5 Okt (Hari 5)</td>
-                            <td>Riset Luaran & Format Dokumen</td>
-                            <td>Nasrul & Sunandi TI11</td>
-                            <td>Prosedur dan Outline Pengajuan HAKI sudah tersedia. Draft format dokumen (IA potrait, Laporan landscape).</td>
-                            <td>Anda Review outline HAKI.</td>
-                        </tr>
-                        <tr>
-                            <td>6 Okt (Hari 6)</td>
-                            <td>Finalisasi Draf Proposal Bab I-III</td>
-                            <td>Nasrul (Lead)</td>
-                            <td>Draft Proposal (Bab 1-3) sudah 80% selesai, siap diisi detail teknis.</td>
-                            <td>Anda Review Bab 1-3.</td>
-                        </tr>
-                        <tr>
-                            <td>7 Okt (Hari 7)</td>
-                            <td>Koord. Mitra & Infrastruktur</td>
-                            <td>Rafly & Jidan N. Tplk</td>
-                            <td>Konfirmasi jadwal TTD Mitra di SMK Ganesa. Rencana Hosting/Deployment Web App.</td>
-                            <td>Final Approval Draf Kerjasama.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+      <div class="team-members">
+        <h3>Anggota Tim Proyek</h3>
+        <p>
+          <strong>Ardian S (Ketua)</strong> &bull; Musa Soleha &bull; Rafly
+          (TPLK 11) &bull; Azaria Bunga &bull; Jidan Nugroho (TPLK) &bull;
+          Nasrul (Unpam) &bull; Ridho (TI) &bull; Sunandi (TI 11) &bull; Riski
+          &bull; Tnavcky
+        </p>
+      </div>
+
+      <div class="timeline-grid">
+        <!-- Tahap 1 Card -->
+        <div class="card">
+          <div class="card-header">
+            <h2>Tahap 1: Proposal</h2>
+            <span class="date-range">1 – 28 Oktober 2025</span>
+          </div>
+          <div class="card-content">
+            <p>
+              Fokus pada riset, desain sistem, pengembangan awal, dan finalisasi
+              seluruh dokumen proposal untuk diunggah.
+            </p>
+            <a href="./tahap1_proposal.html" class="card-link"
+              >Lihat Detail Tugas</a
+            >
+          </div>
         </div>
 
-        <div class="phase">
-            <div class="phase-header">
-                <h2>FASE 2: Legalisasi & Penyusunan Proposal</h2>
-                <p><strong>Tujuan:</strong> Mendapatkan Tanda Tangan (TTD) Mitra dan menyelesaikan seluruh isi proposal (8 Oktober – 15 Oktober).</p>
-            </div>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Tanggal</th>
-                            <th>Tugas Kritis</th>
-                            <th>Penanggung Jawab</th>
-                            <th>Deliverable (Hasil yang Harus Ada)</th>
-                            <th>Peran Anda (Ketua)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>8 Okt (Hari 8)</td>
-                            <td>Integrasi Konten & Teknis</td>
-                            <td>Nasrul & Jidan N. TI11</td>
-                            <td>Proposal diisi dengan deskripsi teknis Web App yang rinci (Metode Pelaksanaan).</td>
-                            <td>Anda Cek Keterkaitan Teknis dan Proposal.</td>
-                        </tr>
-                        <tr>
-                            <td>9 Okt (Hari 9)</td>
-                            <td>Hard Copy Surat IA</td>
-                            <td>Musa</td>
-                            <td>Surat IA Kampus (Asli) sudah ditangan Ketua/Rafly untuk dibawa ke Mitra.</td>
-                            <td>Pastikan Musa sudah mendapatkan suratnya.</td>
-                        </tr>
-                        <tr>
-                            <td>10 Okt (Hari 10)</td>
-                            <td>Finalisasi Dokumen TTD Mitra</td>
-                            <td>+62...42911</td>
-                            <td>Semua dokumen untuk TTD Mitra (Kerjasama & IA) sudah dicetak dan siap dibawa Rafly.</td>
-                            <td>Anda Cek kesamaan tanggal antara IA & Kerjasama.</td>
-                        </tr>
-                        <tr>
-                            <td>11 Okt (Hari 11)</td>
-                            <td>Tanda Tangan & Stempel Mitra</td>
-                            <td>Rafly</td>
-                            <td>Dokumen Kerjasama TTD Mitra (Berstempel) sudah kembali ke tim.</td>
-                            <td>Anda Cek keabsahan stempel mitra.</td>
-                        </tr>
-                        <tr>
-                            <td>12 Okt (Hari 12)</td>
-                            <td>Bukti Berita Online</td>
-                            <td>Sunandi TI11</td>
-                            <td>Link Berita Online (portal resmi, bukan blog) mengenai kerjasama dengan SMK Ganesa.</td>
-                            <td>Anda Kumpulkan Link untuk Proposal.</td>
-                        </tr>
-                        <tr>
-                            <td>13 Okt (Hari 13)</td>
-                            <td>Proposal Final Draft 90%</td>
-                            <td>Nasrul (Lead)</td>
-                            <td>Proposal PKM Lengkap (Bab 1-5 + Lampiran) siap untuk Review Total.</td>
-                            <td>Anda Review Total dan berikan revisi mayor terakhir.</td>
-                        </tr>
-                        <tr>
-                            <td>14 Okt (Hari 14)</td>
-                            <td>Finalisasi TTD Dosen</td>
-                            <td>Musa</td>
-                            <td>Proposal sudah ditandatangani Dosen Pembimbing.</td>
-                            <td>Anda Dampingi Musa jika perlu.</td>
-                        </tr>
-                        <tr>
-                            <td>15 Okt (Hari 15)</td>
-                            <td>Finalisasi Lampiran (Biodata, dsb)</td>
-                            <td>Nasrul & +62...42911</td>
-                            <td>Semua Lampiran (Biodata Ketua/Anggota, Anggaran Biaya) sudah lengkap.</td>
-                            <td>Anda Kumpulkan semua file.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <!-- Tahap 2 Card -->
+        <div class="card">
+          <div class="card-header">
+            <h2>Tahap 2: Pelaksanaan</h2>
+            <span class="date-range">1 – 30 November 2025</span>
+          </div>
+          <div class="card-content">
+            <p>
+              Pelaksanaan kegiatan utama di lokasi mitra (SMK Ganesa), termasuk
+              sosialisasi, pelatihan, dan demo aplikasi.
+            </p>
+            <a href="./tahap2_pelaksanaan.html" class="card-link"
+              >Lihat Detail Tugas</a
+            >
+          </div>
         </div>
 
-        <div class="phase">
-            <div class="phase-header">
-                <h2>FASE 3: Verifikasi & Upload</h2>
-                <p><strong>Tujuan:</strong> Memastikan file Proposal sempurna dan terunggah tepat waktu (16 Oktober – 18 Oktober).</p>
-            </div>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Tanggal</th>
-                            <th>Tugas Kritis</th>
-                            <th>Penanggung Jawab</th>
-                            <th>Deliverable (Hasil yang Harus Ada)</th>
-                            <th>Peran Anda (Ketua)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>16 Okt (Hari 16)</td>
-                            <td>Final Proofreading Total</td>
-                            <td>Seluruh Tim</td>
-                            <td>Proposal bebas dari typo, kesalahan format, dan memastikan semua dokumen pendukung ada.</td>
-                            <td>Anda Lakukan Verifikasi Final pada semua aspek administrasi.</td>
-                        </tr>
-                        <tr>
-                            <td>17 Okt (Hari 17)</td>
-                            <td>Konversi PDF & Hard Copy</td>
-                            <td>+62...42911</td>
-                            <td>Semua file diubah ke format PDF (jika perlu) dan Hard Copy siap untuk arsip.</td>
-                            <td>Anda Simpan Salinan Digital Final.</td>
-                        </tr>
-                        <tr>
-                            <td>18 Okt (Hari 18)</td>
-                            <td>UPLOAD PROPOSAL RESMI</td>
-                            <td>Musa & Anda (Ketua)</td>
-                            <td>Proposal terunggah ke sistem Siskerma paling lambat Pukul 23:59 WIB.</td>
-                            <td>Anda Lakukan Proses Upload (atau awasi Musa) dan simpan bukti unggah.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <!-- Tahap 3 Card -->
+        <div class="card">
+          <div class="card-header">
+            <h2>Tahap 3: Monitoring</h2>
+            <span class="date-range">1 – 31 Desember 2025</span>
+          </div>
+          <div class="card-content">
+            <p>
+              Evaluasi pasca-kegiatan, analisis feedback, pengembangan fitur
+              lanjutan berdasarkan masukan, dan pendampingan mitra.
+            </p>
+            <a href="./tahap3_monitoring.html" class="card-link"
+              >Lihat Detail Tugas</a
+            >
+          </div>
         </div>
 
-        <footer>
-            <p>&copy; 2025 Tim PKM CareerConnect. All rights reserved.</p>
-        </footer>
+        <!-- Tahap 4 Card -->
+        <div class="card">
+          <div class="card-header">
+            <h2>Tahap 4: Pelaporan</h2>
+            <span class="date-range">1 – 15 Januari 2026</span>
+          </div>
+          <div class="card-content">
+            <p>
+              Menyusun laporan akhir, laporan keuangan, mengurus luaran wajib
+              seperti HAKI dan publikasi media.
+            </p>
+            <a href="./tahap4_pelaporan.html" class="card-link"
+              >Lihat Detail Tugas</a
+            >
+          </div>
+        </div>
+
+        <!-- Tahap 5 Card -->
+        <div class="card">
+          <div class="card-header">
+            <h2>Tahap 5: Finalisasi</h2>
+            <span class="date-range">16 – 31 Januari 2026</span>
+          </div>
+          <div class="card-content">
+            <p>
+              Review akhir, pengesahan, upload laporan dan luaran ke sistem,
+              serta validasi oleh tim kemahasiswaan.
+            </p>
+            <a href="./tahap5_finalisasi.html" class="card-link"
+              >Lihat Detail Tugas</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <p>&copy; 2025-2026 Tim PKM-RPL CareerConnect.</p>
+      </footer>
     </div>
-
-</body>
+  </body>
 </html>
