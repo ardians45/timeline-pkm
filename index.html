@@ -160,6 +160,73 @@
         margin: 0;
         line-height: 1.6;
       }
+
+      /* Modal styles for rundwon details */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        overflow: auto;
+      }
+
+      .modal-content {
+        background-color: #ffffff;
+        margin: 5% auto;
+        padding: 25px;
+        border-radius: 12px;
+        width: 90%;
+        max-width: 800px;
+        max-height: 85vh;
+        overflow-y: auto;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+        line-height: 1;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: #000;
+        text-decoration: none;
+      }
+
+      .rundown-section {
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .rundown-section:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .rundown-time {
+        font-weight: bold;
+        color: #0056b3;
+        margin-bottom: 5px;
+      }
+
+      .rundown-activity {
+        font-weight: 600;
+        margin: 8px 0 5px 0;
+      }
+
+      .rundown-details {
+        line-height: 1.6;
+      }
     </style>
   </head>
   <body>
@@ -346,11 +413,194 @@
             >
           </div>
         </div>
+
+        <!-- Rundown Card -->
+        <div class="card">
+          <div class="card-header">
+            <h2>Acara Puncak: CareerConnect</h2>
+            <span class="date-range">26 November 2025 | 08:30 - 12:15 WIB</span>
+          </div>
+          <div class="card-content">
+            <p>
+              Rundown acara puncak PKM CareerConnect di SMK 1 Makarya,
+              termasuk registrasi, pembukaan, sambutan ketua pelaksana,
+              sesi materi pengenalan minat bakat, demo aplikasi, tanya jawab,
+              kuis berhadiah, dan penutupan.
+            </p>
+            <a href="#rundown-details" class="card-link" onclick="showRundownDetails()">Lihat Rundown Lengkap</a>
+          </div>
+        </div>
       </div>
 
       <footer>
         <p>&copy; 2025-2026 Tim PKM-RPL CareerConnect.</p>
       </footer>
     </div>
+
+    <!-- Modal for Rundown Details -->
+    <div id="rundownModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 style="color: #0056b3; margin-top: 0;">Rundown Acara Puncak PKM "CareerConnect"</h2>
+        <p><strong>Lokasi:</strong> SMK 1 Makarya</p>
+        <p><strong>Tanggal:</strong> Rabu, 26 November 2025</p>
+        <p><strong>Waktu:</strong> 08:30 – 12:15 WIB</p>
+
+        <div class="rundown-section">
+          <div class="rundown-time">1. REGISTRASI & PEMBAGIAN SNACK (08:30 - 09:00)</div>
+          <div class="rundown-activity">PIC: Riski (Absensi) & Rizky/Ridho (Konsumsi)</div>
+          <div class="rundown-details">
+            <p><strong>Aksi Tim:</strong></p>
+            <ol>
+              <li>Sambut siswa di meja registrasi.</li>
+              <li>Setelah siswa isi absen, langsung berikan snack box/kotak.</li>
+              <li>Arahkan siswa masuk ruangan, persilakan makan santai sambil menunggu acara mulai.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="rundown-section">
+          <div class="rundown-time">2. PEMBUKAAN (09:00 - 09:10)</div>
+          <div class="rundown-activity">Posisi: Rafly & Sunandi berdiri berdampingan di depan (Center Stage)</div>
+          <div class="rundown-details">
+            <p><strong>Script MC:</strong></p>
+            <p>Rafly: "Assalamualaikum Warahmatullahi Wabarakatuh. Selamat pagi!"</p>
+            <p>Sunandi: "Semangat pagi semuanya! Selamat datang di acara puncak PKM kami."</p>
+            <p>Rafly: "Yang kami hormati Bapak/Ibu Guru SMK 1 Makarya, rekan-rekan mahasiswa, dan teman-teman siswa yang luar biasa."</p>
+            <p>Sunandi: "Sambil menunggu, silakan snack-nya boleh langsung dinikmati ya. Santai saja, habiskan biar nanti pas materi bisa lebih fokus."</p>
+            <p>Rafly: "Betul! Perkenalkan saya Rafly dan rekan saya Sunandi. Kami akan memandu acara bertema 'CareerConnect: Jembatan Masa Depan Digitalmu' hari ini."</p>
+            <p><em>(Penting: Info Dosen Absen)</em></p>
+            <p>Sunandi: "Sebelum lanjut, kami sampaikan permohonan maaf dari Dosen Pembimbing kami. Beliau sangat ingin hadir bertemu teman-teman di sini, namun ada tugas mendesak yang tidak bisa ditinggalkan. Beliau menitipkan salam semangat untuk kalian semua."</p>
+            <p>Rafly: "Meski tanpa beliau, acara tetap jalan terus! Hari ini kita akan belajar mengenali potensi diri dan pastinya... ada doorprize menarik!"</p>
+            <p>Sunandi: "Mari kita buka acara ini dengan membaca Basmalah."</p>
+            <p><em>(Semua: Bismillahirohmanirohim)</em></p>
+          </div>
+        </div>
+
+        <div class="rundown-section">
+          <div class="rundown-time">3. SAMBUTAN KETUA PELAKSANA (09:10 - 09:25)</div>
+          <div class="rundown-activity">Posisi: Ardian maju ke depan, MC mundur sedikit. Ardian memegang Mic</div>
+          <div class="rundown-details">
+            <p>Rafly: "Selanjutnya, sambutan dari Ketua Pelaksana PKM. Kepada Mas Ardian Setiawan, waktu dan tempat dipersilakan."</p>
+            <p><em>(Ardian memegang Mic)</em></p>
+            <p>Ardian: "Assalamualaikum Wr. Wb. Selamat pagi teman-teman. Silakan dilanjut makannya.</p>
+            <p>Terima kasih kepada pihak SMK 1 Makarya yang sudah menyambut kami dengan sangat baik.</p>
+            <p>Kenapa kami bawa 'CareerConnect' ke sini?</p>
+            <p>Kami melihat banyak siswa SMK yang bingung setelah lulus. Bingung minatnya apa, bingung mau kerja apa, atau takut salah pilih jurusan kuliah.</p>
+            <p>Aplikasi yang kami bawa hari ini adalah solusi untuk itu. Kami ingin membantu kalian menemukan passion kalian sendiri, supaya nanti langkah ke depannya lebih mantap dan nggak salah arah.</p>
+            <p>Tolong manfaatkan kehadiran kami, jangan sungkan bertanya.</p>
+            <p>Sekian dari saya. Wassalamualaikum Wr. Wb."</p>
+            <p>Sunandi: "Terima kasih Mas Ardian. Sangat inspiratif ya."</p>
+          </div>
+        </div>
+
+        <div class="rundown-section">
+          <div class="rundown-time">4. SESI 1: MATERI PENGENALAN MINAT BAKAT (09:25 - 10:00)</div>
+          <div class="rundown-activity">Posisi: Rafly & Sunandi memandu materi (mengacu ke PPT). Media: Slide PPT ditampilkan di layar.</div>
+          <div class="rundown-details">
+            <p>Rafly: "Oke teman-teman, sambil menikmati snack, coba perhatikan slide PPT di depan ini."</p>
+            <p>Sunandi: "Di sini ada yang pernah merasa bingung nggak? Kayak... 'Sebenernya aku jagonya di mana sih?' atau 'Nanti kalau kuliah atau kerja, takut salah jurusan.' Ada yang ngerasa gitu? Angkat tangan!"</p>
+            <p><em>(Tunggu respon siswa)</em></p>
+            <p>Rafly: "Nah, itu masalah wajar. Banyak orang terjebak di pekerjaan atau jurusan yang mereka nggak suka karena nggak kenal dirinya sendiri dari awal."</p>
+            <p>Sunandi: "Betul. Makanya, CareerConnect ini hadir. Coba lihat poin di slide ini. Platform kami didesain bukan cuma buat cari kerja, tapi buat menemukan minat pada diri sendiri."</p>
+            <p>Rafly: "Jadi sebelum kalian melangkah jauh, aplikasi ini bantu kalian memetakan: 'Oh, ternyata aku cocoknya di desain grafis', atau 'Oh, aku lebih bakat di jaringan komputer'. Biar nggak ada lagi cerita salah jurusan!"</p>
+            <p>Sunandi: "Penting banget kan? Nah, teknis cara pakainya gimana biar minat kalian ketahuan? Kita lanjut ke sesi demo!"</p>
+          </div>
+        </div>
+
+        <div class="rundown-section">
+          <div class="rundown-time">5. SESI 2: DEMO APLIKASI (10:00 - 11:00)</div>
+          <div class="rundown-activity">Perubahan Posisi (Penting): Sunandi ➔ Pindah ke belakang laptop (Operator Slide/App), Jidan & Nasrul ➔ Maju sebagai Demonstrator, Ardian ➔ Maju sebagai Penjelas Teknis, Rafly ➔ Tetap memegang kendali Mic</div>
+          <div class="rundown-details">
+            <p>Rafly: "Sekarang kita praktik langsung! Saya panggilkan tim teknis: Mas Jidan dan Mas Nasrul. Mas Ardian juga akan bantu jelaskan. Mas Sunandi izin jadi operator dulu."</p>
+            <p><em>(Proses Demo: Jidan/Nasrul mengklik di laptop, Ardian menjelaskan)</em></p>
+            <p>Ardian: "Teman-teman perhatikan layar.</p>
+            <p>Saat kalian login pertama kali di CareerConnect, ada fitur asesmen minat. Nah, fitur inilah yang akan membantu kalian menghindari salah jurusan tadi..."</p>
+            <p><em>(Jelaskan alur aplikasi sampai selesai)</em></p>
+          </div>
+        </div>
+
+        <div class="rundown-section">
+          <div class="rundown-time">6. TANYA JAWAB (11:00 - 11:30)</div>
+          <div class="rundown-activity">Posisi: Rafly memimpin di depan</div>
+          <div class="rundown-details">
+            <p>Rafly: "Beri tepuk tangan buat tim developer!</p>
+            <p>Sekarang giliran kalian. Siapa yang mau tanya? Mungkin ada yang masih bingung cara tahu bakatnya gimana? Ada hadiah buat penanya!"</p>
+            <p><em>(Rafly menunjuk siswa yang angkat tangan)</em></p>
+            <p><em>(Tim Jidan/Nasrul/Ardian menjawab pertanyaan)</em></p>
+          </div>
+        </div>
+
+        <div class="rundown-section">
+          <div class="rundown-time">7. FEEDBACK DIGITAL (11:30 - 11:45)</div>
+          <div class="rundown-activity">Posisi: Sunandi menampilkan Slide QR Code G-Form. Aksi: Azaria & Ridho keliling bantu siswa scan.</div>
+          <div class="rundown-details">
+            <p>Rafly: "Oke, tahan dulu. Jangan simpan HP kalian. Lihat ke layar di depan."</p>
+            <p>Sunandi (Dari meja operator): "Kami butuh masukan kalian lewat Google Form ini. Silakan Scan QR Code di layar atau ketik link-nya."</p>
+            <p>Rafly: "Ayo diisi ya. Karena... yang sudah ngisi form, baru sah buat ikutan KUIS BERHADIAH setelah ini! Waktunya 5 menit."</p>
+            <p><em>(Putar musik background santai - Tunggu siswa mengisi)</em></p>
+          </div>
+        </div>
+
+        <div class="rundown-section">
+          <div class="rundown-time">8. KUIS BERHADIAH (11:45 - 12:00)</div>
+          <div class="rundown-activity">Posisi: Rafly & Sunandi (Energi Tinggi). Logistik: Riski siap dengan hadiah.</div>
+          <div class="rundown-details">
+            <p>Sunandi: "Datanya sudah masuk semua? Oke! Waktunya... KUIS BERHADIAH!"</p>
+            <p>Rafly: "Aturannya: Saya bacakan soal, angkat tangan cepat-cepatan. Jangan jawab sebelum ditunjuk!"</p>
+            <p>Sunandi: "Pertanyaan 1: Apa tujuan utama aplikasi ini selain cari kerja? (Clue: biar nggak salah...)"</p>
+            <p><em>(Jawaban diharapkan: Menemukan minat / menghindari salah jurusan)</em></p>
+            <p>Rafly: "Pertanyaan 2: Apa nama aplikasi yang kita bahas hari ini?"</p>
+            <p><em>(Riski memberikan hadiah ke pemenang)</em></p>
+          </div>
+        </div>
+
+        <div class="rundown-section">
+          <div class="rundown-time">9. PENUTUPAN & FOTO (12:00 - 12:15)</div>
+          <div class="rundown-activity">Posisi: Semua Tim Maju ke Depan</div>
+          <div class="rundown-details">
+            <p>Rafly: "Alhamdulillah, acara sudah selesai. Terima kasih teman-teman SMK 1 Makarya, kalian pecah banget!"</p>
+            <p>Sunandi: "Kami pamit undur diri. Mohon maaf jika ada kekurangan. Semoga kalian makin kenal minat bakat kalian dan sukses selalu!"</p>
+            <p>Rafly: "Jangan lupa sampah snack-nya dibuang di tempat sampah ya. Sekarang, ayo merapat ke panggung. Kita FOTO BERSAMA!"</p>
+            <p><em>(Sesi Foto dipandu Azaria & Tnavcky)</em></p>
+            <p><em>Bersama: "Wassalamualaikum Warahmatullahi Wabarakatuh!"</em></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Function to show rundown details
+      function showRundownDetails() {
+        var modal = document.getElementById("rundownModal");
+        modal.style.display = "block";
+        document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
+      }
+
+      // Close modal functionality
+      function closeRundownModal() {
+        var modal = document.getElementById("rundownModal");
+        modal.style.display = "none";
+        document.body.style.overflow = "auto"; // Re-enable scrolling
+      }
+
+      // When the page loads, set up event listeners
+      window.onload = function() {
+        var modal = document.getElementById("rundownModal");
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          closeRundownModal();
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            closeRundownModal();
+          }
+        }
+      };
+    </script>
   </body>
 </html>
