@@ -70,6 +70,21 @@
       tbody tr:nth-child(even) {
         background-color: #f8f9fa;
       }
+      .section {
+        margin-bottom: 40px;
+      }
+      .section-title {
+        background-color: #e9ecef;
+        padding: 12px 15px;
+        border-radius: 6px;
+        border-left: 4px solid #343a40;
+        margin-bottom: 15px;
+      }
+      .section-title h3 {
+        margin: 0;
+        color: #23272b;
+        font-size: 1.4em;
+      }
       .nav-link {
         display: inline-block;
         margin-top: 20px;
@@ -82,58 +97,218 @@
       .nav-link:hover {
         background-color: #5a6268;
       }
+      .checklist-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+        padding: 10px;
+        background-color: #f8f9fa;
+        border-radius: 4px;
+        border-left: 3px solid #343a40;
+      }
+      .checklist-item.completed {
+        border-left-color: #28a745;
+      }
+      .checklist-status {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        text-align: center;
+        line-height: 24px;
+        border-radius: 50%;
+        background-color: #e9ecef;
+        margin-right: 10px;
+        font-size: 0.9em;
+      }
+      .checklist-status.completed {
+        background-color: #28a745;
+        color: white;
+      }
     </style>
   </head>
   <body>
     <div class="container">
       <header>
         <h1>Tahap 5: Validasi & Finalisasi Proyek</h1>
-        <p class="subtitle"><strong>Periode:</strong> 16 – 31 Januari 2026</p>
+        <p class="subtitle"><strong>Meliputi Tahap D, E, Ringkasan Singkat, dan Checklist Final</strong></p>
       </header>
 
-      <div class="phase">
-        <div class="phase-header"><h2>Tugas & Tanggung Jawab</h2></div>
+      <div class="section">
+        <div class="section-title"><h3>🔥 Tahap D — Finalisasi Upload Sistem</h3></div>
         <table>
           <thead>
             <tr>
-              <th>Tanggal</th>
-              <th>Tugas Kritis</th>
-              <th>Penanggung Jawab (PIC)</th>
-              <th>Deliverable (Hasil Kerja)</th>
+              <th>Tugas</th>
+              <th>Penanggung Jawab</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>16-20 Jan</td>
-              <td>Review & Pengesahan Laporan oleh Dosen Pembimbing</td>
-              <td>Nasrul & Musa</td>
-              <td>
-                Laporan akhir dan luaran telah disetujui dan ditandatangani oleh
-                dosen.
-              </td>
+              <td>Gabungkan laporan akhir + lampiran ke PDF</td>
+              <td>Jidan & Ridho</td>
             </tr>
             <tr>
-              <td>21-25 Jan</td>
-              <td>Upload Laporan Akhir & Seluruh Luaran ke Sistem</td>
-              <td>Musa & Ardian S</td>
-              <td>Bukti unggah semua dokumen ke sistem kemahasiswaan.</td>
+              <td>Upload laporan akhir & luaran ke sistem</td>
+              <td>Ardian</td>
             </tr>
             <tr>
-              <td>26-30 Jan</td>
-              <td>Proses Validasi oleh Tim Kemahasiswaan</td>
-              <td>(Menunggu Konfirmasi Sistem)</td>
-              <td>Status "Valid" atau "Selesai" pada sistem.</td>
-            </tr>
-            <tr>
-              <td>31 Jan</td>
-              <td>Rapat Penutupan & Pembubaran Tim</td>
-              <td>Ardian S & Seluruh Tim</td>
-              <td>Arsip digital proyek, pembagian sertifikat (jika ada).</td>
+              <td>Cek ulang semua file & metadata pengisian</td>
+              <td>Ardian, Jidan, Ridho</td>
             </tr>
           </tbody>
         </table>
-        <a href="./index.html" class="nav-link">Kembali ke Dashboard</a>
       </div>
+
+      <div class="section">
+        <div class="section-title"><h3>🔥 Tahap E — ACC & Validasi</h3></div>
+        <table>
+          <thead>
+            <tr>
+              <th>Tahap</th>
+              <th>Tugas Kritis</th>
+              <th>Penanggung Jawab</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ACC laporan pembimbing</td>
+              <td>ACC laporan pembimbing dari dosen</td>
+              <td>Jidan Nugroho</td>
+            </tr>
+            <tr>
+              <td>ACC luaran pembimbing</td>
+              <td>ACC luaran pembimbing dari dosen</td>
+              <td>Ridho</td>
+            </tr>
+            <tr>
+              <td>Validasi Tim Kemahasiswaan</td>
+              <td>Validasi oleh Tim Kemahasiswaan</td>
+              <td>Riski</td>
+            </tr>
+            <tr>
+              <td>Pengecekan sertifikat</td>
+              <td>Pengecekan sertifikat terbit & update ke grup</td>
+              <td>Bunga</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title"><h3>🏁 Ringkasan Singkat Siapa Mengerjakan Apa (High-Level)</h3></div>
+        <table>
+          <thead>
+            <tr>
+              <th>Anggota</th>
+              <th>Fokus</th>
+              <th>Tanggung Jawab</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ardian</td>
+              <td>Data HAKI + Upload sistem</td>
+              <td>Pengumpulan data HAKI dan upload ke sistem</td>
+            </tr>
+            <tr>
+              <td>Musa</td>
+              <td>Dokumen kerjasama & koordinasi mitra</td>
+              <td>Pengamanan dokumen kerjasama dan koordinasi</td>
+            </tr>
+            <tr>
+              <td>Rafly</td>
+              <td>Komunikasi mitra + Guidebook</td>
+              <td>Koordinasi komunikasi mitra dan pembuatan guidebook</td>
+            </tr>
+            <tr>
+              <td>Azaria</td>
+              <td>Keuangan</td>
+              <td>Penyusunan laporan keuangan</td>
+            </tr>
+            <tr>
+              <td>Tnavcky</td>
+              <td>Keuangan</td>
+              <td>Pendampingan laporan keuangan</td>
+            </tr>
+            <tr>
+              <td>Jidan</td>
+              <td>Lead laporan + Lampiran + ACC laporan</td>
+              <td>Lead penulisan laporan, lampiran, dan ACC laporan</td>
+            </tr>
+            <tr>
+              <td>Ridho</td>
+              <td>Lead laporan + Lampiran + ACC luaran</td>
+              <td>Lead penulisan laporan, lampiran, dan ACC luaran</td>
+            </tr>
+            <tr>
+              <td>Riski</td>
+              <td>Co-Lead laporan + Validasi kemahasiswaan</td>
+              <td>Co-Lead penulisan laporan dan validasi kemahasiswaan</td>
+            </tr>
+            <tr>
+              <td>Bunga</td>
+              <td>Monitoring sertifikat & laporan ke grup</td>
+              <td>Pemantauan sertifikat dan informasi ke grup</td>
+            </tr>
+            <tr>
+              <td>Nasrul</td>
+              <td>Dokumentasi + Guidebook</td>
+              <td>Pengumpulan dokumentasi dan pembuatan guidebook</td>
+            </tr>
+            <tr>
+              <td>Sunandi</td>
+              <td>Posting berita portal + Data HAKI (asisten)</td>
+              <td>Publikasi media dan pengumpulan data HAKI</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title"><h3>🔒 Checklist Wajib Final (Tidak Boleh Ada yang Ketinggalan)</h3></div>
+        <div class="checklist-item">
+          <span class="checklist-status">⏳ / ✔</span>
+          <div><strong>Laporan akhir (Bab I–IV)</strong> - Lead Laporan</div>
+        </div>
+        <div class="checklist-item">
+          <span class="checklist-status">⏳ / ✔</span>
+          <div><strong>Lampiran lengkap</strong> - Jidan & Ridho</div>
+        </div>
+        <div class="checklist-item">
+          <span class="checklist-status">⏳ / ✔</span>
+          <div><strong>Guidebook CareerConnect</strong> - Rafly & Nasrul</div>
+        </div>
+        <div class="checklist-item">
+          <span class="checklist-status">⏳ / ✔</span>
+          <div><strong>Laporan keuangan</strong> - Azaria & Tnavcky</div>
+        </div>
+        <div class="checklist-item">
+          <span class="checklist-status">⏳ / ✔</span>
+          <div><strong>Dokumentasi foto</strong> - Nasrul & Riski</div>
+        </div>
+        <div class="checklist-item">
+          <span class="checklist-status">⏳ / ✔</span>
+          <div><strong>Video dokumentasi</strong> - Nasrul</div>
+        </div>
+        <div class="checklist-item">
+          <span class="checklist-status">⏳ / ✔</span>
+          <div><strong>Data HAKI</strong> - Ardian & Sunandi</div>
+        </div>
+        <div class="checklist-item">
+          <span class="checklist-status">⏳ / ✔</span>
+          <div><strong>Publikasi portal</strong> - Sunandi</div>
+        </div>
+        <div class="checklist-item">
+          <span class="checklist-status">⏳ / ✔</span>
+          <div><strong>Upload sistem</strong> - Ardian</div>
+        </div>
+        <div class="checklist-item">
+          <span class="checklist-status">⏳ / ✔</span>
+          <div><strong>ACC laporan & luaran</strong> - Jidan, Ridho, Riski, Bunga</div>
+        </div>
+      </div>
+
+      <a href="./index.html" class="nav-link">Kembali ke Dashboard</a>
     </div>
   </body>
 </html>
