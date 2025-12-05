@@ -1,846 +1,444 @@
 <!DOCTYPE html>
-<html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard Proyek PKM "CareerConnect"</title>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard PKM "CareerConnect"</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#1e293b', // slate-800
+                        secondary: '#2563eb', // blue-600
+                        accent: '#3b82f6', // blue-500
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-          Helvetica, Arial, sans-serif;
-        background-color: #f0f2f5;
-        color: #1c1e21;
-        margin: 0;
-        padding: 20px;
-      }
-      .container {
-        max-width: 1200px;
-        margin: auto;
-      }
-      header {
-        text-align: center;
-        margin-bottom: 40px;
-      }
-      h1 {
-        color: #0056b3;
-        font-size: 2.8em;
-      }
-      .subtitle {
-        font-size: 1.2em;
-        color: #606770;
-      }
-      .timeline-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 25px;
-      }
-      .card {
-        background: #ffffff;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        padding: 25px;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-      }
-      .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-      }
-      .card-header {
-        border-bottom: 1px solid #dddfe2;
-        padding-bottom: 15px;
-        margin-bottom: 15px;
-      }
-      .card-header h2 {
-        margin: 0;
-        color: #0056b3;
-        font-size: 1.5em;
-      }
-      .card-header .date-range {
-        font-size: 0.9em;
-        color: #606770;
-        font-weight: 600;
-      }
-      .card-content p {
-        margin: 0 0 20px 0;
-        line-height: 1.5;
-      }
-      .card-link {
-        display: inline-block;
-        background-color: #007bff;
-        color: #ffffff;
-        padding: 10px 20px;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: background-color 0.2s ease;
-      }
-      .card-link:hover {
-        background-color: #0056b3;
-      }
-      footer {
-        text-align: center;
-        margin-top: 50px;
-        font-size: 0.9em;
-        color: #6c757d;
-      }
-      .team-members {
-        margin-bottom: 30px;
-        padding: 20px;
-        background-color: #ffffff;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      }
-      .team-members h3 {
-        margin-top: 0;
-        margin-bottom: 20px;
-        color: #0056b3;
-        text-align: center;
-      }
-      .team-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 15px;
-        margin-top: 15px;
-      }
-      .team-member-card {
-        background-color: #f8f9fa;
-        border-radius: 8px;
-        padding: 15px;
-        text-align: center;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-        border: 1px solid #e9ecef;
-      }
-      .team-member-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
-      }
-      .team-member-name {
-        font-weight: 600;
-        margin: 0;
-        color: #0056b3;
-      }
-      .team-member-role {
-        font-size: 0.85em;
-        color: #6c757d;
-        margin: 5px 0 0 0;
-      }
-      .team-roles {
-        margin-bottom: 40px;
-        padding: 25px;
-        background-color: #ffffff;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      }
-      .team-roles h3 {
-        margin-top: 0;
-        margin-bottom: 20px;
-        color: #0056b3;
-        text-align: center;
-      }
-      .role-card {
-        background-color: #f8f9fa;
-        border-radius: 8px;
-        padding: 20px;
-        margin-bottom: 15px;
-        border-left: 4px solid #007bff;
-      }
-      .role-title {
-        font-weight: 600;
-        color: #0056b3;
-        margin: 0 0 10px 0;
-      }
-      .role-members {
-        font-weight: 500;
-        color: #495057;
-        margin: 0 0 10px 0;
-      }
-      .role-description {
-        font-size: 0.95em;
-        color: #6c757d;
-        margin: 0;
-        line-height: 1.6;
-      }
-
-      /* Modal styles for rundwon details */
-      .modal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        overflow: auto;
-      }
-
-      .modal-content {
-        background-color: #ffffff;
-        margin: 5% auto;
-        padding: 25px;
-        border-radius: 12px;
-        width: 90%;
-        max-width: 800px;
-        max-height: 85vh;
-        overflow-y: auto;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      }
-
-      .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-        cursor: pointer;
-        line-height: 1;
-      }
-
-      .close:hover,
-      .close:focus {
-        color: #000;
-        text-decoration: none;
-      }
-
-      .rundown-section {
-        margin-bottom: 15px;
-        padding-bottom: 15px;
-        border-bottom: 1px solid #eee;
-      }
-
-      .rundown-section:last-child {
-        border-bottom: none;
-        margin-bottom: 0;
-        padding-bottom: 0;
-      }
-
-      .rundown-time {
-        font-weight: bold;
-        color: #0056b3;
-        margin-bottom: 5px;
-      }
-
-      .rundown-activity {
-        font-weight: 600;
-        margin: 8px 0 5px 0;
-      }
-
-      .rundown-details {
-        line-height: 1.6;
-      }
+        /* Custom scrollbar for better look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
     </style>
-  </head>
-  <body>
-    <div class="container">
-      <header>
-        <h1>Dashboard Proyek PKM "CareerConnect"</h1>
-        <p class="subtitle">
-          Navigasi utama untuk memantau setiap tahap pengembangan dan
-          pelaksanaan proyek.
-        </p>
-      </header>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans">
 
-      <div class="team-members">
-        <h3>Anggota Tim Proyek</h3>
-        <div class="team-grid">
-          <div class="team-member-card">
-            <p class="team-member-name">Ardian S</p>
-            <p class="team-member-role">Ketua / Koordinator Teknis</p>
-          </div>
-          <div class="team-member-card">
-            <p class="team-member-name">Musa Soleha</p>
-            <p class="team-member-role">Humas / Komunikasi</p>
-          </div>
-          <div class="team-member-card">
-            <p class="team-member-name">Rafly (TPLK 11)</p>
-            <p class="team-member-role">Humas / Komunikasi</p>
-          </div>
-          <div class="team-member-card">
-            <p class="team-member-name">Azaria Bunga</p>
-            <p class="team-member-role">Bendahara</p>
-          </div>
-          <div class="team-member-card">
-            <p class="team-member-name">Jidan Nugroho (TPLK)</p>
-            <p class="team-member-role">Filing / Administrasi</p>
-          </div>
-          <div class="team-member-card">
-            <p class="team-member-name">Nasrul (Unpam)</p>
-            <p class="team-member-role">Anggota</p>
-          </div>
-          <div class="team-member-card">
-            <p class="team-member-name">Ridho (TI)</p>
-            <p class="team-member-role">Filing / Administrasi</p>
-          </div>
-          <div class="team-member-card">
-            <p class="team-member-name">Sunandi (TI 11)</p>
-            <p class="team-member-role">Anggota</p>
-          </div>
-          <div class="team-member-card">
-            <p class="team-member-name">Riski</p>
-            <p class="team-member-role">Anggota</p>
-          </div>
-          <div class="team-member-card">
-            <p class="team-member-name">Tnavcky</p>
-            <p class="team-member-role">Bendahara</p>
-          </div>
+    <!-- Navbar -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">C</div>
+                <div>
+                    <h1 class="text-lg font-bold text-slate-900 leading-tight">CareerConnect</h1>
+                    <p class="text-[10px] uppercase tracking-wider text-slate-500 font-semibold">Dashboard PKM</p>
+                </div>
+            </div>
+            <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
+                <a href="#tim" class="hover:text-blue-600 transition-colors">Tim & Peran</a>
+                <a href="#timeline" class="hover:text-blue-600 transition-colors">Timeline</a>
+                <a href="#rundown" class="hover:text-blue-600 transition-colors">Acara Puncak</a>
+            </nav>
         </div>
-      </div>
+    </header>
 
-      <div class="team-roles">
-        <h3>Peran Tim</h3>
-        <div class="role-card">
-          <h4 class="role-title">Ketua / Koordinator Teknis</h4>
-          <p class="role-members">Ardian S</p>
-          <p class="role-description">
-            Bertanggung jawab atas arah keseluruhan proyek, koordinasi tim,
-            pengawasan setiap tahap kegiatan, serta menangani bagian teknis
-            seperti coding, implementasi sistem, dan integrasi fitur.
-          </p>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
+        
+        <!-- Hero Section -->
+        <section class="text-center space-y-4 py-8">
+            <div class="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-medium mb-2 border border-blue-100">
+                Proyek Kreativitas Mahasiswa
+            </div>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                Monitoring Proyek <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">CareerConnect</span>
+            </h2>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                Platform digital untuk membantu siswa SMK menemukan minat, bakat, dan karir impian mereka. Pantau progres setiap tahapan di sini.
+            </p>
+        </section>
+
+        <!-- Timeline Section -->
+        <section id="timeline" class="scroll-mt-20">
+            <div class="flex items-center justify-between mb-8">
+                <h3 class="text-2xl font-bold text-slate-900 flex items-center gap-3">
+                    <span class="flex w-3 h-8 bg-blue-600 rounded-full"></span>
+                    Timeline Kegiatan
+                </h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Tahap 1 -->
+                <article class="group relative bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600"></div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="inline-flex items-center justify-center px-2.5 py-0.5 rounded-md text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-100">
+                                Tahap 1
+                            </span>
+                            <span class="text-xs font-medium text-slate-400">Okt 2025</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">Proposal & Perancangan</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Fokus pada riset, desain sistem, pengembangan awal, dan finalisasi seluruh dokumen proposal.
+                        </p>
+                    </div>
+                    <div class="p-6 pt-0 mt-auto">
+                        <a href="./tahap1_proposal.html" class="inline-flex items-center justify-center w-full px-4 py-2.5 text-sm font-medium text-blue-600 bg-blue-50 rounded-xl hover:bg-blue-600 hover:text-white transition-all duration-200">
+                            Lihat Detail
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Tahap 2 -->
+                <article class="group relative bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-400 to-teal-600"></div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="inline-flex items-center justify-center px-2.5 py-0.5 rounded-md text-xs font-semibold bg-teal-50 text-teal-700 border border-teal-100">
+                                Tahap 2
+                            </span>
+                            <span class="text-xs font-medium text-slate-400">Nov 2025</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-teal-600 transition-colors">Pelaksanaan</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Kegiatan utama di mitra (SMK Ganesa), sosialisasi, pelatihan, dan demo aplikasi.
+                        </p>
+                    </div>
+                    <div class="p-6 pt-0 mt-auto">
+                        <a href="./tahap2_pelaksanaan.html" class="inline-flex items-center justify-center w-full px-4 py-2.5 text-sm font-medium text-teal-600 bg-teal-50 rounded-xl hover:bg-teal-600 hover:text-white transition-all duration-200">
+                            Lihat Detail
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Tahap 3 -->
+                <article class="group relative bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-400 to-indigo-600"></div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="inline-flex items-center justify-center px-2.5 py-0.5 rounded-md text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-100">
+                                Tahap 3
+                            </span>
+                            <span class="text-xs font-medium text-slate-400">Des 2025</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-indigo-600 transition-colors">Monitoring</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Evaluasi pasca-kegiatan, analisis feedback, dan pengembangan fitur lanjutan.
+                        </p>
+                    </div>
+                    <div class="p-6 pt-0 mt-auto">
+                        <a href="./tahap3_monitoring.html" class="inline-flex items-center justify-center w-full px-4 py-2.5 text-sm font-medium text-indigo-600 bg-indigo-50 rounded-xl hover:bg-indigo-600 hover:text-white transition-all duration-200">
+                            Lihat Detail
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Tahap 4 -->
+                <article class="group relative bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-400 to-orange-600"></div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="inline-flex items-center justify-center px-2.5 py-0.5 rounded-md text-xs font-semibold bg-orange-50 text-orange-700 border border-orange-100">
+                                Tahap 4
+                            </span>
+                            <span class="text-xs font-medium text-slate-400">Jan 2026</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-orange-600 transition-colors">Pelaporan</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Penyusunan laporan akhir, keuangan, serta pengurusan HAKI dan publikasi.
+                        </p>
+                    </div>
+                    <div class="p-6 pt-0 mt-auto">
+                        <a href="./tahap4_pelaporan.html" class="inline-flex items-center justify-center w-full px-4 py-2.5 text-sm font-medium text-orange-600 bg-orange-50 rounded-xl hover:bg-orange-600 hover:text-white transition-all duration-200">
+                            Lihat Detail
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Tahap 5 -->
+                <article class="group relative bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-400 to-green-600"></div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="inline-flex items-center justify-center px-2.5 py-0.5 rounded-md text-xs font-semibold bg-green-50 text-green-700 border border-green-100">
+                                Tahap 5
+                            </span>
+                            <span class="text-xs font-medium text-slate-400">Jan 2026</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-green-600 transition-colors">Finalisasi</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Review akhir, pengesahan, upload laporan ke sistem, validasi tim.
+                        </p>
+                    </div>
+                    <div class="p-6 pt-0 mt-auto">
+                        <a href="./tahap5_finalisasi.html" class="inline-flex items-center justify-center w-full px-4 py-2.5 text-sm font-medium text-green-600 bg-green-50 rounded-xl hover:bg-green-600 hover:text-white transition-all duration-200">
+                            Lihat Detail
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Rundown Card (Special) -->
+                <article class="group relative bg-slate-900 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col text-white">
+                    <div class="absolute top-0 right-0 p-4 opacity-10">
+                        <svg class="w-32 h-32" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
+                    </div>
+                    <div class="p-6 flex-grow relative z-10">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="inline-flex items-center justify-center px-2.5 py-0.5 rounded-md text-xs font-semibold bg-blue-600 text-white border border-blue-500">
+                                Acara Puncak
+                            </span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Rundown CareerConnect</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            Rabu, 26 Nov 2025 | 08:30 WIB <br>
+                            SMK 1 Makarya
+                        </p>
+                        <p class="text-slate-400 text-xs">
+                            Registrasi • Materi • Demo App • Doorprize
+                        </p>
+                    </div>
+                    <div class="p-6 pt-0 mt-auto relative z-10">
+                        <button onclick="toggleModal('rundownModal')" class="inline-flex items-center justify-center w-full px-4 py-2.5 text-sm font-medium text-slate-900 bg-white rounded-xl hover:bg-blue-50 transition-all duration-200">
+                            Buka Rundown
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Team & Role Combined Section -->
+        <section id="tim" class="grid grid-cols-1 lg:grid-cols-3 gap-8 scroll-mt-20">
+            <!-- Left Column: Member List -->
+            <div class="lg:col-span-2 bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8">
+                <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    Anggota Tim
+                </h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                    <!-- Member Items -->
+                    <div class="bg-slate-50 p-4 rounded-xl text-center border border-slate-100 hover:border-blue-200 hover:bg-blue-50 transition-colors group">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full mx-auto mb-3 flex items-center justify-center text-blue-600 font-bold group-hover:scale-110 transition-transform">AS</div>
+                        <p class="font-semibold text-slate-800 text-sm">Ardian S</p>
+                        <p class="text-xs text-slate-500 mt-1">Ketua</p>
+                    </div>
+                     <div class="bg-slate-50 p-4 rounded-xl text-center border border-slate-100 hover:border-blue-200 hover:bg-blue-50 transition-colors group">
+                        <div class="w-12 h-12 bg-indigo-100 rounded-full mx-auto mb-3 flex items-center justify-center text-indigo-600 font-bold group-hover:scale-110 transition-transform">MS</div>
+                        <p class="font-semibold text-slate-800 text-sm">Musa S</p>
+                        <p class="text-xs text-slate-500 mt-1">Humas</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl text-center border border-slate-100 hover:border-blue-200 hover:bg-blue-50 transition-colors group">
+                        <div class="w-12 h-12 bg-indigo-100 rounded-full mx-auto mb-3 flex items-center justify-center text-indigo-600 font-bold group-hover:scale-110 transition-transform">RF</div>
+                        <p class="font-semibold text-slate-800 text-sm">Rafly</p>
+                        <p class="text-xs text-slate-500 mt-1">Humas</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl text-center border border-slate-100 hover:border-blue-200 hover:bg-blue-50 transition-colors group">
+                        <div class="w-12 h-12 bg-emerald-100 rounded-full mx-auto mb-3 flex items-center justify-center text-emerald-600 font-bold group-hover:scale-110 transition-transform">AB</div>
+                        <p class="font-semibold text-slate-800 text-sm">Azaria B</p>
+                        <p class="text-xs text-slate-500 mt-1">Bendahara</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl text-center border border-slate-100 hover:border-blue-200 hover:bg-blue-50 transition-colors group">
+                        <div class="w-12 h-12 bg-emerald-100 rounded-full mx-auto mb-3 flex items-center justify-center text-emerald-600 font-bold group-hover:scale-110 transition-transform">TN</div>
+                        <p class="font-semibold text-slate-800 text-sm">Tnavcky</p>
+                        <p class="text-xs text-slate-500 mt-1">Bendahara</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl text-center border border-slate-100 hover:border-blue-200 hover:bg-blue-50 transition-colors group">
+                        <div class="w-12 h-12 bg-amber-100 rounded-full mx-auto mb-3 flex items-center justify-center text-amber-600 font-bold group-hover:scale-110 transition-transform">JN</div>
+                        <p class="font-semibold text-slate-800 text-sm">Jidan N</p>
+                        <p class="text-xs text-slate-500 mt-1">Admin</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl text-center border border-slate-100 hover:border-blue-200 hover:bg-blue-50 transition-colors group">
+                        <div class="w-12 h-12 bg-amber-100 rounded-full mx-auto mb-3 flex items-center justify-center text-amber-600 font-bold group-hover:scale-110 transition-transform">RD</div>
+                        <p class="font-semibold text-slate-800 text-sm">Ridho</p>
+                        <p class="text-xs text-slate-500 mt-1">Admin</p>
+                    </div>
+                     <div class="bg-slate-50 p-4 rounded-xl text-center border border-slate-100 hover:border-blue-200 hover:bg-blue-50 transition-colors group">
+                        <div class="w-12 h-12 bg-slate-200 rounded-full mx-auto mb-3 flex items-center justify-center text-slate-600 font-bold group-hover:scale-110 transition-transform">NA</div>
+                        <p class="font-semibold text-slate-800 text-sm">Nasrul</p>
+                        <p class="text-xs text-slate-500 mt-1">Anggota</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl text-center border border-slate-100 hover:border-blue-200 hover:bg-blue-50 transition-colors group">
+                        <div class="w-12 h-12 bg-slate-200 rounded-full mx-auto mb-3 flex items-center justify-center text-slate-600 font-bold group-hover:scale-110 transition-transform">SN</div>
+                        <p class="font-semibold text-slate-800 text-sm">Sunandi</p>
+                        <p class="text-xs text-slate-500 mt-1">Anggota</p>
+                    </div>
+                     <div class="bg-slate-50 p-4 rounded-xl text-center border border-slate-100 hover:border-blue-200 hover:bg-blue-50 transition-colors group">
+                        <div class="w-12 h-12 bg-slate-200 rounded-full mx-auto mb-3 flex items-center justify-center text-slate-600 font-bold group-hover:scale-110 transition-transform">RS</div>
+                        <p class="font-semibold text-slate-800 text-sm">Riski</p>
+                        <p class="text-xs text-slate-500 mt-1">Anggota</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Role Descriptions -->
+            <div class="lg:col-span-1 space-y-4">
+                <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2 lg:hidden">
+                    Deskripsi Peran
+                </h3>
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:border-blue-300 transition-colors">
+                    <h4 class="font-bold text-slate-900 mb-1">Ketua / Koordinator</h4>
+                    <p class="text-xs text-blue-600 font-medium mb-2">Ardian S</p>
+                    <p class="text-sm text-slate-600 leading-relaxed">Penanggung jawab utama, koordinasi teknis, coding, dan integrasi sistem.</p>
+                </div>
+                 <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:border-green-300 transition-colors">
+                    <h4 class="font-bold text-slate-900 mb-1">Filing / Administrasi</h4>
+                    <p class="text-xs text-green-600 font-medium mb-2">Jidan, Ridho</p>
+                    <p class="text-sm text-slate-600 leading-relaxed">Pengarsipan dokumen, surat menyurat, dan pemberkasan administrasi.</p>
+                </div>
+                 <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:border-indigo-300 transition-colors">
+                    <h4 class="font-bold text-slate-900 mb-1">Humas / Komunikasi</h4>
+                    <p class="text-xs text-indigo-600 font-medium mb-2">Musa, Rafly</p>
+                    <p class="text-sm text-slate-600 leading-relaxed">Hubungan dengan dosen & mitra, serta pengaturan jadwal.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-10 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-slate-500 text-sm">&copy; 2025-2026 Tim PKM-RPL CareerConnect. <br>Dikembangkan dengan semangat.</p>
         </div>
+    </footer>
 
-        <div class="role-card">
-          <h4 class="role-title">Filing / Administrasi</h4>
-          <p class="role-members">Jidan Nugroho, Ridho</p>
-          <p class="role-description">
-            Mengelola seluruh kebutuhan administrasi seperti pencetakan dokumen,
-            pengumpulan tanda tangan, pengarsipan, serta memastikan pemberkasan
-            dan bimbingan dengan dosen berjalan lancar.
-          </p>
+    <!-- Modal Rundown -->
+    <div id="rundownModal" class="fixed inset-0 z-[100] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <!-- Backdrop -->
+        <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" onclick="toggleModal('rundownModal')"></div>
+
+        <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+            <div class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-3xl max-h-[85vh] flex flex-col">
+                
+                <!-- Modal Header -->
+                <div class="bg-white px-6 py-4 border-b border-slate-100 flex justify-between items-center sticky top-0 z-10">
+                    <div>
+                        <h3 class="text-lg font-bold leading-6 text-slate-900" id="modal-title">Rundown Acara Puncak</h3>
+                        <p class="text-sm text-slate-500">Rabu, 26 November 2025</p>
+                    </div>
+                    <button type="button" class="text-slate-400 hover:text-slate-600 focus:outline-none bg-slate-50 p-2 rounded-full hover:bg-slate-100 transition-colors" onclick="toggleModal('rundownModal')">
+                        <span class="sr-only">Close</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Modal Body (Scrollable) -->
+                <div class="px-6 py-6 overflow-y-auto custom-scrollbar space-y-6">
+                    <!-- Item 1 -->
+                    <div class="relative pl-8 border-l-2 border-slate-200 pb-2">
+                        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-blue-600 border-4 border-white"></div>
+                        <div class="mb-1">
+                            <span class="text-sm font-bold text-blue-600">08:30 - 09:00</span>
+                            <h4 class="font-bold text-slate-800">Registrasi & Pembagian Snack</h4>
+                        </div>
+                        <p class="text-sm text-slate-600">PIC: Riski & Rizky/Ridho. Sambut siswa, isi absen, bagikan snack.</p>
+                    </div>
+
+                     <!-- Item 2 -->
+                     <div class="relative pl-8 border-l-2 border-slate-200 pb-2">
+                        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-300 border-4 border-white"></div>
+                        <div class="mb-1">
+                            <span class="text-sm font-bold text-slate-500">09:00 - 09:10</span>
+                            <h4 class="font-bold text-slate-800">Pembukaan (MC)</h4>
+                        </div>
+                        <p class="text-sm text-slate-600">MC: Rafly & Sunandi. Pembukaan formal, info dosen absen, doa.</p>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="relative pl-8 border-l-2 border-slate-200 pb-2">
+                        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-300 border-4 border-white"></div>
+                        <div class="mb-1">
+                            <span class="text-sm font-bold text-slate-500">09:10 - 09:25</span>
+                            <h4 class="font-bold text-slate-800">Sambutan Ketua Pelaksana</h4>
+                        </div>
+                        <p class="text-sm text-slate-600">Ardian S: Latar belakang aplikasi dan tujuan untuk siswa SMK.</p>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="relative pl-8 border-l-2 border-slate-200 pb-2">
+                        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-indigo-500 border-4 border-white"></div>
+                        <div class="mb-1">
+                            <span class="text-sm font-bold text-indigo-600">09:25 - 10:00</span>
+                            <h4 class="font-bold text-slate-800">Sesi 1: Materi Pengenalan Minat Bakat</h4>
+                        </div>
+                        <p class="text-sm text-slate-600">Rafly & Sunandi. Membahas masalah salah jurusan dan pentingnya RIASEC.</p>
+                    </div>
+
+                    <!-- Item 5 -->
+                     <div class="relative pl-8 border-l-2 border-slate-200 pb-2">
+                        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-indigo-500 border-4 border-white"></div>
+                        <div class="mb-1">
+                            <span class="text-sm font-bold text-indigo-600">10:00 - 11:00</span>
+                            <h4 class="font-bold text-slate-800">Sesi 2: Demo Aplikasi Live</h4>
+                        </div>
+                        <p class="text-sm text-slate-600">Tim Teknis (Jidan, Nasrul, Ardian). Demonstrasi fitur asesmen minat dan dashboard siswa.</p>
+                    </div>
+
+                    <!-- Item 6 -->
+                    <div class="relative pl-8 border-l-2 border-slate-200 pb-2">
+                        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-300 border-4 border-white"></div>
+                        <div class="mb-1">
+                            <span class="text-sm font-bold text-slate-500">11:00 - 11:30</span>
+                            <h4 class="font-bold text-slate-800">Tanya Jawab</h4>
+                        </div>
+                        <p class="text-sm text-slate-600">Sesi interaktif dengan siswa.</p>
+                    </div>
+
+                     <!-- Item 7 -->
+                     <div class="relative pl-8 border-l-2 border-slate-200 pb-2">
+                        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-amber-500 border-4 border-white"></div>
+                        <div class="mb-1">
+                            <span class="text-sm font-bold text-amber-600">11:45 - 12:00</span>
+                            <h4 class="font-bold text-slate-800">Kuis Berhadiah & Feedback</h4>
+                        </div>
+                        <p class="text-sm text-slate-600">Quiz interaktif dan pengisian G-Form.</p>
+                    </div>
+                </div>
+
+                <!-- Modal Footer -->
+                <div class="bg-slate-50 px-6 py-4 sm:flex sm:flex-row-reverse border-t border-slate-100 sticky bottom-0 z-10">
+                    <button type="button" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 hover:bg-slate-50 sm:mt-0 sm:w-auto transition-colors" onclick="toggleModal('rundownModal')">Tutup</button>
+                </div>
+            </div>
         </div>
-
-        <div class="role-card">
-          <h4 class="role-title">Bendahara</h4>
-          <p class="role-members">Azaria Bunga dan Tnavcky</p>
-          <p class="role-description">
-            Mengatur dan mencatat semua transaksi keuangan proyek, menyusun
-            laporan keuangan, serta memastikan transparansi dan efisiensi
-            penggunaan dana PKM.
-          </p>
-        </div>
-
-        <div class="role-card">
-          <h4 class="role-title">Humas / Komunikasi Dosen & Lembaga</h4>
-          <p class="role-members">Musa dan Rafly</p>
-          <p class="role-description">
-            Menjadi penghubung utama antara tim dan dosen pembimbing, mengatur
-            jadwal bimbingan, serta menjaga komunikasi dengan pihak kampus dan
-            mitra proyek.
-          </p>
-        </div>
-      </div>
-
-      <div class="timeline-grid">
-        <!-- Tahap 1 Card -->
-        <div class="card">
-          <div class="card-header">
-            <h2>Tahap 1: Proposal</h2>
-            <span class="date-range">1 – 28 Oktober 2025</span>
-          </div>
-          <div class="card-content">
-            <p>
-              Fokus pada riset, desain sistem, pengembangan awal, dan finalisasi
-              seluruh dokumen proposal untuk diunggah.
-            </p>
-            <a href="./tahap1_proposal.html" class="card-link"
-              >Lihat Detail Tugas</a
-            >
-          </div>
-        </div>
-
-        <!-- Tahap 2 Card -->
-        <div class="card">
-          <div class="card-header">
-            <h2>Tahap 2: Pelaksanaan</h2>
-            <span class="date-range">1 – 30 November 2025</span>
-          </div>
-          <div class="card-content">
-            <p>
-              Pelaksanaan kegiatan utama di lokasi mitra (SMK Ganesa), termasuk
-              sosialisasi, pelatihan, dan demo aplikasi.
-            </p>
-            <a href="./tahap2_pelaksanaan.html" class="card-link"
-              >Lihat Detail Tugas</a
-            >
-          </div>
-        </div>
-
-        <!-- Tahap 3 Card -->
-        <div class="card">
-          <div class="card-header">
-            <h2>Tahap 3: Monitoring</h2>
-            <span class="date-range">1 – 31 Desember 2025</span>
-          </div>
-          <div class="card-content">
-            <p>
-              Evaluasi pasca-kegiatan, analisis feedback, pengembangan fitur
-              lanjutan berdasarkan masukan, dan pendampingan mitra.
-            </p>
-            <a href="./tahap3_monitoring.html" class="card-link"
-              >Lihat Detail Tugas</a
-            >
-          </div>
-        </div>
-
-        <!-- Tahap 4 Card -->
-        <div class="card">
-          <div class="card-header">
-            <h2>Tahap 4: Pelaporan</h2>
-            <span class="date-range">1 – 15 Januari 2026</span>
-          </div>
-          <div class="card-content">
-            <p>
-              Menyusun laporan akhir, laporan keuangan, mengurus luaran wajib
-              seperti HAKI dan publikasi media.
-            </p>
-            <a href="./tahap4_pelaporan.html" class="card-link"
-              >Lihat Detail Tugas</a
-            >
-          </div>
-        </div>
-
-        <!-- Tahap 5 Card -->
-        <div class="card">
-          <div class="card-header">
-            <h2>Tahap 5: Finalisasi</h2>
-            <span class="date-range">16 – 31 Januari 2026</span>
-          </div>
-          <div class="card-content">
-            <p>
-              Review akhir, pengesahan, upload laporan dan luaran ke sistem,
-              serta validasi oleh tim kemahasiswaan.
-            </p>
-            <a href="./tahap5_finalisasi.html" class="card-link"
-              >Lihat Detail Tugas</a
-            >
-          </div>
-        </div>
-
-        <!-- Rundown Card -->
-        <div class="card">
-          <div class="card-header">
-            <h2>Acara Puncak: CareerConnect</h2>
-            <span class="date-range">26 November 2025 | 08:30 - 12:15 WIB</span>
-          </div>
-          <div class="card-content">
-            <p>
-              Rundown acara puncak PKM CareerConnect di SMK 1 Makarya, termasuk
-              registrasi, pembukaan, sambutan ketua pelaksana, sesi materi
-              pengenalan minat bakat, demo aplikasi, tanya jawab, kuis
-              berhadiah, dan penutupan.
-            </p>
-            <a
-              href="#rundown-details"
-              class="card-link"
-              onclick="showRundownDetails()"
-              >Lihat Rundown Lengkap</a
-            >
-          </div>
-        </div>
-      </div>
-
-      <footer>
-        <p>&copy; 2025-2026 Tim PKM-RPL CareerConnect.</p>
-      </footer>
-    </div>
-
-    <!-- Modal for Rundown Details -->
-    <div id="rundownModal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2 style="color: #0056b3; margin-top: 0">
-          Rundown Acara Puncak PKM "CareerConnect"
-        </h2>
-        <p><strong>Lokasi:</strong> SMK 1 Makarya</p>
-        <p><strong>Tanggal:</strong> Rabu, 26 November 2025</p>
-        <p><strong>Waktu:</strong> 08:30 – 12:15 WIB</p>
-
-        <div class="rundown-section">
-          <div class="rundown-time">
-            1. REGISTRASI & PEMBAGIAN SNACK (08:30 - 09:00)
-          </div>
-          <div class="rundown-activity">
-            PIC: Riski (Absensi) & Rizky/Ridho (Konsumsi)
-          </div>
-          <div class="rundown-details">
-            <p><strong>Aksi Tim:</strong></p>
-            <ol>
-              <li>Sambut siswa di meja registrasi.</li>
-              <li>
-                Setelah siswa isi absen, langsung berikan snack box/kotak.
-              </li>
-              <li>
-                Arahkan siswa masuk ruangan, persilakan makan santai sambil
-                menunggu acara mulai.
-              </li>
-            </ol>
-          </div>
-        </div>
-
-        <div class="rundown-section">
-          <div class="rundown-time">2. PEMBUKAAN (09:00 - 09:10)</div>
-          <div class="rundown-activity">
-            Posisi: Rafly & Sunandi berdiri berdampingan di depan (Center Stage)
-          </div>
-          <div class="rundown-details">
-            <p><strong>Script MC:</strong></p>
-            <p>
-              Rafly: "Assalamualaikum Warahmatullahi Wabarakatuh. Selamat pagi!"
-            </p>
-            <p>
-              Sunandi: "Semangat pagi semuanya! Selamat datang di acara puncak
-              PKM kami."
-            </p>
-            <p>
-              Rafly: "Yang kami hormati Bapak/Ibu Guru SMK 1 Makarya,
-              rekan-rekan mahasiswa, dan teman-teman siswa yang luar biasa."
-            </p>
-            <p>
-              Sunandi: "Sambil menunggu, silakan snack-nya boleh langsung
-              dinikmati ya. Santai saja, habiskan biar nanti pas materi bisa
-              lebih fokus."
-            </p>
-            <p>
-              Rafly: "Betul! Perkenalkan saya Rafly dan rekan saya Sunandi. Kami
-              akan memandu acara bertema 'CareerConnect: Jembatan Masa Depan
-              Digitalmu' hari ini."
-            </p>
-            <p><em>(Penting: Info Dosen Absen)</em></p>
-            <p>
-              Sunandi: "Sebelum lanjut, kami sampaikan permohonan maaf dari
-              Dosen Pembimbing kami. Beliau sangat ingin hadir bertemu
-              teman-teman di sini, namun ada tugas mendesak yang tidak bisa
-              ditinggalkan. Beliau menitipkan salam semangat untuk kalian
-              semua."
-            </p>
-            <p>
-              Rafly: "Meski tanpa beliau, acara tetap jalan terus! Hari ini kita
-              akan belajar mengenali potensi diri dan pastinya... ada doorprize
-              menarik!"
-            </p>
-            <p>Sunandi: "Mari kita buka acara ini dengan membaca Basmalah."</p>
-            <p><em>(Semua: Bismillahirohmanirohim)</em></p>
-          </div>
-        </div>
-
-        <div class="rundown-section">
-          <div class="rundown-time">
-            3. SAMBUTAN KETUA PELAKSANA (09:10 - 09:25)
-          </div>
-          <div class="rundown-activity">
-            Posisi: Ardian maju ke depan, MC mundur sedikit. Ardian memegang Mic
-          </div>
-          <div class="rundown-details">
-            <p>
-              Rafly: "Selanjutnya, sambutan dari Ketua Pelaksana PKM. Kepada Mas
-              Ardian Setiawan, waktu dan tempat dipersilakan."
-            </p>
-            <p><em>(Ardian memegang Mic)</em></p>
-            <p>
-              Ardian: "Assalamualaikum Wr. Wb. Selamat pagi teman-teman. Silakan
-              dilanjut makannya.
-            </p>
-            <p>
-              Terima kasih kepada pihak SMK 1 Makarya yang sudah menyambut kami
-              dengan sangat baik.
-            </p>
-            <p>Kenapa kami bawa 'CareerConnect' ke sini?</p>
-            <p>
-              Kami melihat banyak siswa SMK yang bingung setelah lulus. Bingung
-              minatnya apa, bingung mau kerja apa, atau takut salah pilih
-              jurusan kuliah.
-            </p>
-            <p>
-              Aplikasi yang kami bawa hari ini adalah solusi untuk itu. Kami
-              ingin membantu kalian menemukan passion kalian sendiri, supaya
-              nanti langkah ke depannya lebih mantap dan nggak salah arah.
-            </p>
-            <p>Tolong manfaatkan kehadiran kami, jangan sungkan bertanya.</p>
-            <p>Sekian dari saya. Wassalamualaikum Wr. Wb."</p>
-            <p>Sunandi: "Terima kasih Mas Ardian. Sangat inspiratif ya."</p>
-          </div>
-        </div>
-
-        <div class="rundown-section">
-          <div class="rundown-time">
-            4. SESI 1: MATERI PENGENALAN MINAT BAKAT (09:25 - 10:00)
-          </div>
-          <div class="rundown-activity">
-            Posisi: Rafly & Sunandi memandu materi (mengacu ke PPT). Media:
-            Slide PPT ditampilkan di layar.
-          </div>
-          <div class="rundown-details">
-            <p>
-              Rafly: "Oke teman-teman, sambil menikmati snack, coba perhatikan
-              slide PPT di depan ini."
-            </p>
-            <p>
-              Sunandi: "Di sini ada yang pernah merasa bingung nggak? Kayak...
-              'Sebenernya aku jagonya di mana sih?' atau 'Nanti kalau kuliah
-              atau kerja, takut salah jurusan.' Ada yang ngerasa gitu? Angkat
-              tangan!"
-            </p>
-            <p><em>(Tunggu respon siswa)</em></p>
-            <p>
-              Rafly: "Nah, itu masalah wajar. Banyak orang terjebak di pekerjaan
-              atau jurusan yang mereka nggak suka karena nggak kenal dirinya
-              sendiri dari awal."
-            </p>
-            <p>
-              Sunandi: "Betul. Makanya, CareerConnect ini hadir. Coba lihat poin
-              di slide ini. Platform kami didesain bukan cuma buat cari kerja,
-              tapi buat menemukan minat pada diri sendiri."
-            </p>
-            <p>
-              Rafly: "Jadi sebelum kalian melangkah jauh, aplikasi ini bantu
-              kalian memetakan: 'Oh, ternyata aku cocoknya di desain grafis',
-              atau 'Oh, aku lebih bakat di jaringan komputer'. Biar nggak ada
-              lagi cerita salah jurusan!"
-            </p>
-            <p>
-              Sunandi: "Penting banget kan? Nah, teknis cara pakainya gimana
-              biar minat kalian ketahuan? Kita lanjut ke sesi demo!"
-            </p>
-          </div>
-        </div>
-
-        <div class="rundown-section">
-          <div class="rundown-time">
-            5. SESI 2: DEMO APLIKASI (10:00 - 11:00)
-          </div>
-          <div class="rundown-activity">
-            Perubahan Posisi (Penting): Sunandi ➔ Pindah ke belakang laptop
-            (Operator Slide/App), Jidan & Nasrul ➔ Maju sebagai Demonstrator,
-            Ardian ➔ Maju sebagai Penjelas Teknis, Rafly ➔ Tetap memegang
-            kendali Mic
-          </div>
-          <div class="rundown-details">
-            <p>
-              Rafly: "Sekarang kita praktik langsung! Saya panggilkan tim
-              teknis: Mas Jidan dan Mas Nasrul. Mas Ardian juga akan bantu
-              jelaskan. Mas Sunandi izin jadi operator dulu."
-            </p>
-            <p>
-              <em
-                >(Proses Demo: Jidan/Nasrul mengklik di laptop, Ardian
-                menjelaskan)</em
-              >
-            </p>
-            <p>Ardian: "Teman-teman perhatikan layar.</p>
-            <p>
-              Saat kalian login pertama kali di CareerConnect, ada fitur asesmen
-              minat. Nah, fitur inilah yang akan membantu kalian menghindari
-              salah jurusan tadi..."
-            </p>
-            <p><em>(Jelaskan alur aplikasi sampai selesai)</em></p>
-          </div>
-        </div>
-
-        <div class="rundown-section">
-          <div class="rundown-time">6. TANYA JAWAB (11:00 - 11:30)</div>
-          <div class="rundown-activity">Posisi: Rafly memimpin di depan</div>
-          <div class="rundown-details">
-            <p>Rafly: "Beri tepuk tangan buat tim developer!</p>
-            <p>
-              Sekarang giliran kalian. Siapa yang mau tanya? Mungkin ada yang
-              masih bingung cara tahu bakatnya gimana?"
-            </p>
-            <p><em>(Rafly menunjuk siswa yang angkat tangan)</em></p>
-            <p><em>(Tim Jidan/Nasrul/Ardian menjawab pertanyaan)</em></p>
-          </div>
-        </div>
-
-        <div class="rundown-section">
-          <div class="rundown-time">7. FEEDBACK DIGITAL (11:30 - 11:45)</div>
-          <div class="rundown-activity">
-            Posisi: Sunandi menampilkan Slide QR Code G-Form. Aksi: Azaria &
-            Ridho keliling bantu siswa scan.
-          </div>
-          <div class="rundown-details">
-            <p>
-              Rafly: "Oke, tahan dulu. Jangan simpan HP kalian. Lihat ke layar
-              di depan."
-            </p>
-            <p>
-              Sunandi (Dari meja operator): "Kami butuh masukan kalian lewat
-              Google Form ini. Silakan Scan QR Code di layar atau ketik
-              link-nya."
-            </p>
-            <p>
-              Rafly: "Ayo diisi ya. Karena... yang sudah ngisi form, baru sah
-              buat ikutan KUIS BERHADIAH setelah ini! Waktunya 5 menit."
-            </p>
-            <p>
-              <em>(Putar musik background santai - Tunggu siswa mengisi)</em>
-            </p>
-          </div>
-        </div>
-
-        <div class="rundown-section">
-          <div class="rundown-time">8. KUIS BERHADIAH (11:45 - 12:00)</div>
-          <div class="rundown-activity">
-            Posisi: Rafly & Sunandi (Energi Tinggi). Logistik: Riski siap dengan
-            hadiah.
-          </div>
-          <div class="rundown-details">
-            <p>
-              Sunandi: "Datanya sudah masuk semua? Oke! Waktunya... KUIS
-              BERHADIAH!"
-            </p>
-            <p>
-              Rafly: "Aturannya: Saya bacakan soal, angkat tangan cepat-cepatan.
-              Jangan jawab sebelum ditunjuk!"
-            </p>
-
-            <p><strong>🛡️ 5 SOAL UTAMA (Urutan Mudah ke Sulit)</strong></p>
-
-            <p><strong>1. Level: SANGAT MUDAH (Pemanasan)</strong></p>
-            <p>
-              Pertanyaan: "Berdasarkan materi tadi, apa masalah utama yang
-              paling sering bikin siswa SMK bingung menentukan masa depan?"
-            </p>
-            <p>
-              <em
-                >Kunci Jawaban: Tidak tahu minat / Bingung bakatnya apa / Tidak
-                punya arah.</em
-              >
-            </p>
-
-            <p><strong>2. Level: MUDAH (Tentang Aplikasi)</strong></p>
-            <p>
-              Pertanyaan: "Aplikasi CareerConnect yang kita bahas hari ini,
-              fungsi utamanya untuk membantu kita menemukan apa?"
-            </p>
-            <p>
-              <em
-                >Kunci Jawaban: Minat & Bakat / Karir yang cocok / Potensi Diri
-                / Jurusan yang pas.</em
-              >
-            </p>
-
-            <p><strong>3. Level: SEDANG (Angka)</strong></p>
-            <p>
-              Pertanyaan: "Tadi di slide ada metode tes minat bakat namanya
-              RIASEC. Pertanyaannya: Ada berapa jumlah tipe kepribadian dalam
-              metode tersebut?"
-            </p>
-            <p><em>Kunci Jawaban: 6 (Enam).</em></p>
-
-            <p><strong>4. Level: SEDANG (Hafalan Fitur)</strong></p>
-            <p>
-              Pertanyaan: "Sebutkan SATU saja fitur unggulan yang ada di dalam
-              aplikasi CareerConnect!"
-            </p>
-            <p>
-              <em
-                >Kunci Jawaban: (Boleh salah satu): Tes Minat (RIASEC), Profil
-                Siswa / Portofolio, Lowongan Kerja / Magang</em
-              >
-            </p>
-
-            <p><strong>5. Level: SULIT / HADIAH UTAMA (Analisis)</strong></p>
-            <p>
-              Pertanyaan: "Dalam metode RIASEC, tipe kepribadian 'Realistic' (R)
-              itu orang yang suka kerja praktik. Sebutkan satu contoh pekerjaan
-              yang cocok untuk tipe Realistic!"
-            </p>
-            <p>
-              <em
-                >Kunci Jawaban: (Boleh salah satu): Mekanik / Teknisi / Bengkel,
-                Insinyur Teknik, Operator Mesin</em
-              >
-            </p>
-            <p>
-              <em
-                >Clue jika siswa bingung: "Kerjaannya berhubungan dengan alat,
-                mesin, atau fisik."</em
-              >
-            </p>
-
-            <p>
-              <strong>🛡️ 2 SOAL CADANGAN (BACKUP)</strong> (Gunakan jika soal
-              utama sudah habis atau ada soal yang dianulir)
-            </p>
-
-            <p><strong>Backup 1 (Logika Sederhana)</strong></p>
-            <p>
-              Pertanyaan: "Apa akibatnya kalau siswa memilih jurusan atau
-              pekerjaan secara asal-asalan tanpa tahu minatnya?"
-            </p>
-            <p>
-              <em
-                >Kunci Jawaban: Salah jurusan / Tidak betah kerja / Karir macet
-                / Asal gas.</em
-              >
-            </p>
-
-            <p><strong>Backup 2 (Istilah)</strong></p>
-            <p>
-              Pertanyaan: "Supaya dilirik HRD perusahaan, kita harus punya
-              kumpulan bukti karya atau skill kita secara digital. Apa
-              sebutannya?"
-            </p>
-            <p><em>Kunci Jawaban: Portofolio / CV Digital.</em></p>
-
-            <p><em>(Riski memberikan hadiah ke pemenang)</em></p>
-          </div>
-        </div>
-
-        <div class="rundown-section">
-          <div class="rundown-time">9. PENUTUPAN & FOTO (12:00 - 12:15)</div>
-          <div class="rundown-activity">Posisi: Semua Tim Maju ke Depan</div>
-          <div class="rundown-details">
-            <p>
-              Rafly: "Alhamdulillah, acara sudah selesai. Terima kasih
-              teman-teman SMK 1 Makarya, kalian pecah banget!"
-            </p>
-            <p>
-              Sunandi: "Kami pamit undur diri. Mohon maaf jika ada kekurangan.
-              Semoga kalian makin kenal minat bakat kalian dan sukses selalu!"
-            </p>
-            <p>
-              Rafly: "Jangan lupa sampah snack-nya dibuang di tempat sampah ya.
-              Sekarang, ayo merapat ke panggung. Kita FOTO BERSAMA!"
-            </p>
-            <p><em>(Sesi Foto dipandu Azaria & Tnavcky)</em></p>
-            <p>
-              <em>Bersama: "Wassalamualaikum Warahmatullahi Wabarakatuh!"</em>
-            </p>
-          </div>
-        </div>
-      </div>
     </div>
 
     <script>
-      // Function to show rundown details
-      function showRundownDetails() {
-        var modal = document.getElementById('rundownModal');
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
-      }
-
-      // Close modal functionality
-      function closeRundownModal() {
-        var modal = document.getElementById('rundownModal');
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Re-enable scrolling
-      }
-
-      // When the page loads, set up event listeners
-      window.onload = function () {
-        var modal = document.getElementById('rundownModal');
-        var span = document.getElementsByClassName('close')[0];
-
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function () {
-          closeRundownModal();
-        };
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function (event) {
-          if (event.target == modal) {
-            closeRundownModal();
-          }
-        };
-      };
+        function toggleModal(modalID){
+            const modal = document.getElementById(modalID);
+            if (modal.classList.contains("hidden")) {
+                modal.classList.remove("hidden");
+                modal.classList.add("flex");
+                document.body.classList.add("overflow-hidden");
+            } else {
+                modal.classList.add("hidden");
+                modal.classList.remove("flex");
+                document.body.classList.remove("overflow-hidden");
+            }
+        }
     </script>
-  </body>
+</body>
 </html>

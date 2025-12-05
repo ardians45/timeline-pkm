@@ -1,314 +1,211 @@
 <!DOCTYPE html>
-<html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Detail Tahap 5: Validasi & Finalisasi</title>
-    <style>
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-          Helvetica, Arial, sans-serif;
-        line-height: 1.6;
-        background-color: #f8f9fa;
-        color: #343a40;
-        margin: 0;
-        padding: 20px;
-      }
-      .container {
-        max-width: 1200px;
-        margin: auto;
-        background: #ffffff;
-        padding: 30px;
-        border-radius: 12px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      }
-      header {
-        text-align: center;
-        border-bottom: 3px solid #343a40;
-        padding-bottom: 20px;
-        margin-bottom: 20px;
-      }
-      h1 {
-        color: #23272b;
-        font-size: 2.5em;
-        margin-bottom: 0;
-      }
-      .subtitle {
-        font-size: 1.1em;
-        color: #6c757d;
-        margin-top: 10px;
-      }
-      .phase-header {
-        background-color: #e9ecef;
-        padding: 15px 20px;
-        border-radius: 8px;
-        border-left: 6px solid #343a40;
-        margin-bottom: 25px;
-      }
-      .phase-header h2 {
-        margin: 0;
-        color: #23272b;
-        font-size: 1.8em;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-      }
-      th,
-      td {
-        padding: 15px;
-        border: 1px solid #dee2e6;
-        text-align: left;
-        vertical-align: top;
-      }
-      thead {
-        background-color: #343a40;
-        color: #ffffff;
-        font-size: 1.1em;
-      }
-      tbody tr:nth-child(even) {
-        background-color: #f8f9fa;
-      }
-      .section {
-        margin-bottom: 40px;
-      }
-      .section-title {
-        background-color: #e9ecef;
-        padding: 12px 15px;
-        border-radius: 6px;
-        border-left: 4px solid #343a40;
-        margin-bottom: 15px;
-      }
-      .section-title h3 {
-        margin: 0;
-        color: #23272b;
-        font-size: 1.4em;
-      }
-      .nav-link {
-        display: inline-block;
-        margin-top: 20px;
-        background-color: #6c757d;
-        color: white;
-        padding: 10px 15px;
-        border-radius: 5px;
-        text-decoration: none;
-      }
-      .nav-link:hover {
-        background-color: #5a6268;
-      }
-      .checklist-item {
-        display: flex;
-        align-items: center;
-        margin-bottom: 8px;
-        padding: 10px;
-        background-color: #f8f9fa;
-        border-radius: 4px;
-        border-left: 3px solid #343a40;
-      }
-      .checklist-item.completed {
-        border-left-color: #28a745;
-      }
-      .checklist-status {
-        display: inline-block;
-        width: 24px;
-        height: 24px;
-        text-align: center;
-        line-height: 24px;
-        border-radius: 50%;
-        background-color: #e9ecef;
-        margin-right: 10px;
-        font-size: 0.9em;
-      }
-      .checklist-status.completed {
-        background-color: #28a745;
-        color: white;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <header>
-        <h1>Tahap 5: Validasi & Finalisasi Proyek</h1>
-        <p class="subtitle"><strong>Meliputi Tahap D, E, Ringkasan Singkat, dan Checklist Final</strong></p>
-      </header>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tahap 5: Finalisasi - PKM CareerConnect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#1e293b',
+                        secondary: '#2563eb',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans">
 
-      <div class="section">
-        <div class="section-title"><h3>🔥 Tahap D — Finalisasi Upload Sistem</h3></div>
-        <table>
-          <thead>
-            <tr>
-              <th>Tugas</th>
-              <th>Penanggung Jawab</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Gabungkan laporan akhir + lampiran ke PDF</td>
-              <td>Jidan & Ridho</td>
-            </tr>
-            <tr>
-              <td>Upload laporan akhir & luaran ke sistem</td>
-              <td>Ardian</td>
-            </tr>
-            <tr>
-              <td>Cek ulang semua file & metadata pengisian</td>
-              <td>Ardian, Jidan, Ridho</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <!-- Navbar -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+             <div class="flex items-center gap-2">
+                 <a href="index.html" class="flex items-center gap-2 group">
+                    <div class="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold text-xl group-hover:bg-green-700 transition-colors">C</div>
+                    <div>
+                        <h1 class="text-lg font-bold text-slate-900 leading-tight group-hover:text-green-600 transition-colors">CareerConnect</h1>
+                        <p class="text-[10px] uppercase tracking-wider text-slate-500 font-semibold">Dashboard PKM</p>
+                    </div>
+                </a>
+            </div>
+            <nav class="flex space-x-4 text-sm font-medium text-slate-600">
+                <a href="index.html" class="flex items-center gap-1 hover:text-green-600 transition-colors">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                    Kembali ke Dashboard
+                </a>
+            </nav>
+        </div>
+    </header>
 
-      <div class="section">
-        <div class="section-title"><h3>🔥 Tahap E — ACC & Validasi</h3></div>
-        <table>
-          <thead>
-            <tr>
-              <th>Tahap</th>
-              <th>Tugas Kritis</th>
-              <th>Penanggung Jawab</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>ACC laporan pembimbing</td>
-              <td>ACC laporan pembimbing dari dosen</td>
-              <td>Jidan Nugroho</td>
-            </tr>
-            <tr>
-              <td>ACC luaran pembimbing</td>
-              <td>ACC luaran pembimbing dari dosen</td>
-              <td>Ridho</td>
-            </tr>
-            <tr>
-              <td>Validasi Tim Kemahasiswaan</td>
-              <td>Validasi oleh Tim Kemahasiswaan</td>
-              <td>Riski</td>
-            </tr>
-            <tr>
-              <td>Pengecekan sertifikat</td>
-              <td>Pengecekan sertifikat terbit & update ke grup</td>
-              <td>Bunga</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
+        
+        <!-- Page Header -->
+        <div>
+            <div class="flex items-center gap-2 text-sm text-slate-500 mb-2">
+                <a href="index.html" class="hover:text-green-600">Home</a>
+                <span>/</span>
+                <span class="text-slate-900 font-medium">Tahap 5</span>
+            </div>
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-900">Validasi & Finalisasi Proyek</h2>
+                    <p class="text-slate-600 mt-1">Periode: <span class="font-semibold text-green-600">16 – 31 Januari 2026</span></p>
+                </div>
+                 <div class="inline-flex items-center px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-medium">
+                    Status: Pending
+                </div>
+            </div>
+        </div>
 
-      <div class="section">
-        <div class="section-title"><h3>🏁 Ringkasan Singkat Siapa Mengerjakan Apa (High-Level)</h3></div>
-        <table>
-          <thead>
-            <tr>
-              <th>Anggota</th>
-              <th>Fokus</th>
-              <th>Tanggung Jawab</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Ardian</td>
-              <td>Data HAKI + Upload sistem</td>
-              <td>Pengumpulan data HAKI dan upload ke sistem</td>
-            </tr>
-            <tr>
-              <td>Musa</td>
-              <td>Dokumen kerjasama & koordinasi mitra</td>
-              <td>Pengamanan dokumen kerjasama dan koordinasi</td>
-            </tr>
-            <tr>
-              <td>Rafly</td>
-              <td>Komunikasi mitra + Guidebook</td>
-              <td>Koordinasi komunikasi mitra dan pembuatan guidebook</td>
-            </tr>
-            <tr>
-              <td>Azaria</td>
-              <td>Keuangan</td>
-              <td>Penyusunan laporan keuangan</td>
-            </tr>
-            <tr>
-              <td>Tnavcky</td>
-              <td>Keuangan</td>
-              <td>Pendampingan laporan keuangan</td>
-            </tr>
-            <tr>
-              <td>Jidan</td>
-              <td>Lead laporan + Lampiran + ACC laporan</td>
-              <td>Lead penulisan laporan, lampiran, dan ACC laporan</td>
-            </tr>
-            <tr>
-              <td>Ridho</td>
-              <td>Lead laporan + Lampiran + ACC luaran</td>
-              <td>Lead penulisan laporan, lampiran, dan ACC luaran</td>
-            </tr>
-            <tr>
-              <td>Riski</td>
-              <td>Co-Lead laporan + Validasi kemahasiswaan</td>
-              <td>Co-Lead penulisan laporan dan validasi kemahasiswaan</td>
-            </tr>
-            <tr>
-              <td>Bunga</td>
-              <td>Monitoring sertifikat & laporan ke grup</td>
-              <td>Pemantauan sertifikat dan informasi ke grup</td>
-            </tr>
-            <tr>
-              <td>Nasrul</td>
-              <td>Dokumentasi + Guidebook</td>
-              <td>Pengumpulan dokumentasi dan pembuatan guidebook</td>
-            </tr>
-            <tr>
-              <td>Sunandi</td>
-              <td>Posting berita portal + Data HAKI (asisten)</td>
-              <td>Publikasi media dan pengumpulan data HAKI</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Section D: Upload Sistem -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="p-6 border-b border-slate-200 bg-slate-50">
+                    <h3 class="font-bold text-lg text-slate-800">🔥 Tahap D — Finalisasi Upload Sistem</h3>
+                </div>
+                <div class="p-0">
+                    <table class="min-w-full divide-y divide-slate-200">
+                        <tbody class="divide-y divide-slate-200 text-sm">
+                             <tr class="hover:bg-slate-50">
+                                <td class="px-6 py-4 text-slate-800">Gabungkan laporan akhir + lampiran ke PDF</td>
+                                <td class="px-6 py-4 font-medium text-slate-600 text-right">Jidan & Ridho</td>
+                            </tr>
+                             <tr class="hover:bg-slate-50">
+                                <td class="px-6 py-4 text-slate-800">Upload laporan akhir & luaran ke sistem</td>
+                                <td class="px-6 py-4 font-medium text-slate-600 text-right">Ardian</td>
+                            </tr>
+                             <tr class="hover:bg-slate-50">
+                                <td class="px-6 py-4 text-slate-800">Cek ulang semua file & metadata pengisian</td>
+                                <td class="px-6 py-4 font-medium text-slate-600 text-right">Ardian, Jidan, Ridho</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-      <div class="section">
-        <div class="section-title"><h3>🔒 Checklist Wajib Final (Tidak Boleh Ada yang Ketinggalan)</h3></div>
-        <div class="checklist-item">
-          <span class="checklist-status">⏳ / ✔</span>
-          <div><strong>Laporan akhir (Bab I–IV)</strong> - Lead Laporan</div>
+            <!-- Section E: ACC & Validasi -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="p-6 border-b border-slate-200 bg-slate-50">
+                    <h3 class="font-bold text-lg text-slate-800">🔥 Tahap E — ACC & Validasi</h3>
+                </div>
+                <div class="p-0">
+                    <table class="min-w-full divide-y divide-slate-200">
+                        <tbody class="divide-y divide-slate-200 text-sm">
+                             <tr class="hover:bg-slate-50">
+                                <td class="px-6 py-4 text-slate-800">ACC laporan pembimbing</td>
+                                <td class="px-6 py-4 font-medium text-slate-600 text-right">Jidan Nugroho</td>
+                            </tr>
+                             <tr class="hover:bg-slate-50">
+                                <td class="px-6 py-4 text-slate-800">ACC luaran pembimbing</td>
+                                <td class="px-6 py-4 font-medium text-slate-600 text-right">Ridho</td>
+                            </tr>
+                             <tr class="hover:bg-slate-50">
+                                <td class="px-6 py-4 text-slate-800">Validasi Tim Kemahasiswaan</td>
+                                <td class="px-6 py-4 font-medium text-slate-600 text-right">Riski</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="px-6 py-4 text-slate-800">Pengecekan sertifikat terbit</td>
+                                <td class="px-6 py-4 font-medium text-slate-600 text-right">Bunga</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-        <div class="checklist-item">
-          <span class="checklist-status">⏳ / ✔</span>
-          <div><strong>Lampiran lengkap</strong> - Jidan & Ridho</div>
-        </div>
-        <div class="checklist-item">
-          <span class="checklist-status">⏳ / ✔</span>
-          <div><strong>Guidebook CareerConnect</strong> - Rafly & Nasrul</div>
-        </div>
-        <div class="checklist-item">
-          <span class="checklist-status">⏳ / ✔</span>
-          <div><strong>Laporan keuangan</strong> - Azaria & Tnavcky</div>
-        </div>
-        <div class="checklist-item">
-          <span class="checklist-status">⏳ / ✔</span>
-          <div><strong>Dokumentasi foto</strong> - Nasrul & Riski</div>
-        </div>
-        <div class="checklist-item">
-          <span class="checklist-status">⏳ / ✔</span>
-          <div><strong>Video dokumentasi</strong> - Nasrul</div>
-        </div>
-        <div class="checklist-item">
-          <span class="checklist-status">⏳ / ✔</span>
-          <div><strong>Data HAKI</strong> - Ardian & Sunandi</div>
-        </div>
-        <div class="checklist-item">
-          <span class="checklist-status">⏳ / ✔</span>
-          <div><strong>Publikasi portal</strong> - Sunandi</div>
-        </div>
-        <div class="checklist-item">
-          <span class="checklist-status">⏳ / ✔</span>
-          <div><strong>Upload sistem</strong> - Ardian</div>
-        </div>
-        <div class="checklist-item">
-          <span class="checklist-status">⏳ / ✔</span>
-          <div><strong>ACC laporan & luaran</strong> - Jidan, Ridho, Riski, Bunga</div>
-        </div>
-      </div>
 
-      <a href="./index.html" class="nav-link">Kembali ke Dashboard</a>
-    </div>
-  </body>
+        <!-- High Level Summary -->
+        <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+            <div class="p-6 border-b border-slate-200 bg-slate-50">
+                <h3 class="font-bold text-lg text-slate-800">🏁 Ringkasan Tanggung Jawab</h3>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-slate-200 text-sm">
+                    <thead class="bg-slate-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left font-bold text-slate-500 uppercase">Anggota</th>
+                            <th class="px-6 py-3 text-left font-bold text-slate-500 uppercase">Fokus</th>
+                            <th class="px-6 py-3 text-left font-bold text-slate-500 uppercase">Detail</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200">
+                        <tr class="hover:bg-slate-50"><td class="px-6 py-3 font-bold text-slate-900">Ardian</td><td class="px-6 py-3 text-blue-600 font-medium">Data HAKI + Upload</td><td class="px-6 py-3 text-slate-600">Pengumpulan data HAKI dan upload ke sistem</td></tr>
+                        <tr class="hover:bg-slate-50"><td class="px-6 py-3 font-bold text-slate-900">Musa</td><td class="px-6 py-3 text-indigo-600 font-medium">Dokumen & Mitra</td><td class="px-6 py-3 text-slate-600">Pengamanan dokumen kerjasama dan koordinasi</td></tr>
+                        <tr class="hover:bg-slate-50"><td class="px-6 py-3 font-bold text-slate-900">Rafly</td><td class="px-6 py-3 text-indigo-600 font-medium">Komunikasi + Guidebook</td><td class="px-6 py-3 text-slate-600">Koordinasi komunikasi mitra dan pembuatan guidebook</td></tr>
+                        <tr class="hover:bg-slate-50"><td class="px-6 py-3 font-bold text-slate-900">Azaria & Tnavcky</td><td class="px-6 py-3 text-green-600 font-medium">Keuangan</td><td class="px-6 py-3 text-slate-600">Penyusunan laporan keuangan</td></tr>
+                        <tr class="hover:bg-slate-50"><td class="px-6 py-3 font-bold text-slate-900">Jidan & Ridho</td><td class="px-6 py-3 text-amber-600 font-medium">Lead Laporan</td><td class="px-6 py-3 text-slate-600">Lead penulisan laporan, lampiran, dan ACC</td></tr>
+                        <tr class="hover:bg-slate-50"><td class="px-6 py-3 font-bold text-slate-900">Nasrul</td><td class="px-6 py-3 text-teal-600 font-medium">Dokumentasi</td><td class="px-6 py-3 text-slate-600">Pengumpulan dokumentasi dan pembuatan guidebook</td></tr>
+                         <tr class="hover:bg-slate-50"><td class="px-6 py-3 font-bold text-slate-900">Sunandi</td><td class="px-6 py-3 text-blue-600 font-medium">Publikasi</td><td class="px-6 py-3 text-slate-600">Publikasi media dan pengumpulan data HAKI</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Final Checklist -->
+        <div class="bg-slate-900 text-white rounded-xl shadow-lg overflow-hidden p-8">
+            <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                Checklist Wajib Final
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex items-center gap-3 bg-slate-800 p-3 rounded-lg">
+                    <div class="w-6 h-6 rounded-full border-2 border-slate-500 flex items-center justify-center text-xs text-slate-400">1</div>
+                    <span class="font-medium text-slate-200">Laporan akhir (Bab I–IV)</span>
+                </div>
+                <div class="flex items-center gap-3 bg-slate-800 p-3 rounded-lg">
+                    <div class="w-6 h-6 rounded-full border-2 border-slate-500 flex items-center justify-center text-xs text-slate-400">2</div>
+                    <span class="font-medium text-slate-200">Lampiran lengkap</span>
+                </div>
+                <div class="flex items-center gap-3 bg-slate-800 p-3 rounded-lg">
+                    <div class="w-6 h-6 rounded-full border-2 border-slate-500 flex items-center justify-center text-xs text-slate-400">3</div>
+                    <span class="font-medium text-slate-200">Guidebook CareerConnect</span>
+                </div>
+                <div class="flex items-center gap-3 bg-slate-800 p-3 rounded-lg">
+                    <div class="w-6 h-6 rounded-full border-2 border-slate-500 flex items-center justify-center text-xs text-slate-400">4</div>
+                    <span class="font-medium text-slate-200">Laporan keuangan</span>
+                </div>
+                 <div class="flex items-center gap-3 bg-slate-800 p-3 rounded-lg">
+                    <div class="w-6 h-6 rounded-full border-2 border-slate-500 flex items-center justify-center text-xs text-slate-400">5</div>
+                    <span class="font-medium text-slate-200">Dokumentasi Foto & Video</span>
+                </div>
+                 <div class="flex items-center gap-3 bg-slate-800 p-3 rounded-lg">
+                    <div class="w-6 h-6 rounded-full border-2 border-slate-500 flex items-center justify-center text-xs text-slate-400">6</div>
+                    <span class="font-medium text-slate-200">Data HAKI & Publikasi</span>
+                </div>
+                 <div class="flex items-center gap-3 bg-slate-800 p-3 rounded-lg">
+                    <div class="w-6 h-6 rounded-full border-2 border-slate-500 flex items-center justify-center text-xs text-slate-400">7</div>
+                    <span class="font-medium text-slate-200">Upload Sistem Selesai</span>
+                </div>
+                <div class="flex items-center gap-3 bg-slate-800 p-3 rounded-lg">
+                    <div class="w-6 h-6 rounded-full border-2 border-slate-500 flex items-center justify-center text-xs text-slate-400">8</div>
+                    <span class="font-medium text-slate-200">Validasi & ACC Lengkap</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Footer -->
+        <div class="mt-8 flex justify-between">
+            <a href="tahap4_pelaporan.html" class="inline-flex items-center px-4 py-2 border border-slate-300 shadow-sm text-sm font-medium rounded-md text-slate-700 bg-white hover:bg-slate-50">
+                ← Kembali ke Tahap 4
+            </a>
+            <a href="index.html" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 shadow-sm">
+                Selesai - Kembali ke Dashboard
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-10 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-slate-500 text-sm">&copy; 2025-2026 Tim PKM-RPL CareerConnect.</p>
+        </div>
+    </footer>
+</body>
 </html>

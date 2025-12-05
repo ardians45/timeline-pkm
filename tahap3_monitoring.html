@@ -1,146 +1,132 @@
 <!DOCTYPE html>
-<html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Detail Tahap 3: Monitoring & Pengembangan</title>
-    <style>
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-          Helvetica, Arial, sans-serif;
-        line-height: 1.6;
-        background-color: #f8f9fa;
-        color: #343a40;
-        margin: 0;
-        padding: 20px;
-      }
-      .container {
-        max-width: 1200px;
-        margin: auto;
-        background: #ffffff;
-        padding: 30px;
-        border-radius: 12px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      }
-      header {
-        text-align: center;
-        border-bottom: 3px solid #ffc107;
-        padding-bottom: 20px;
-        margin-bottom: 20px;
-      }
-      h1 {
-        color: #d39e00;
-        font-size: 2.5em;
-        margin-bottom: 0;
-      }
-      .subtitle {
-        font-size: 1.1em;
-        color: #6c757d;
-        margin-top: 10px;
-      }
-      .phase-header {
-        background-color: #e9ecef;
-        padding: 15px 20px;
-        border-radius: 8px;
-        border-left: 6px solid #ffc107;
-        margin-bottom: 25px;
-      }
-      .phase-header h2 {
-        margin: 0;
-        color: #d39e00;
-        font-size: 1.8em;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-      }
-      th,
-      td {
-        padding: 15px;
-        border: 1px solid #dee2e6;
-        text-align: left;
-        vertical-align: top;
-      }
-      thead {
-        background-color: #ffc107;
-        color: #212529;
-        font-size: 1.1em;
-      }
-      tbody tr:nth-child(even) {
-        background-color: #f8f9fa;
-      }
-      .nav-link {
-        display: inline-block;
-        margin-top: 20px;
-        background-color: #6c757d;
-        color: white;
-        padding: 10px 15px;
-        border-radius: 5px;
-        text-decoration: none;
-      }
-      .nav-link:hover {
-        background-color: #5a6268;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <header>
-        <h1>Tahap 3: Monitoring & Pengembangan Lanjutan</h1>
-        <p class="subtitle"><strong>Periode:</strong> 1 – 31 Desember 2025</p>
-      </header>
-      <div class="phase">
-        <div class="phase-header"><h2>Tugas & Tanggung Jawab</h2></div>
-        <table>
-          <thead>
-            <tr>
-              <th>Pekan</th>
-              <th>Tugas Kritis</th>
-              <th>Penanggung Jawab (PIC)</th>
-              <th>Deliverable (Hasil Kerja)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Pekan 1-2 (1-14 Des)</td>
-              <td>Implementasi Perbaikan Aplikasi (Versi Beta)</td>
-              <td>Ardian S</td>
-              <td>
-                Aplikasi versi Beta dengan perbaikan bug dan penambahan fitur
-                minor berdasarkan feedback.
-              </td>
-            </tr>
-            <tr>
-              <td>Pekan 2 (8-14 Des)</td>
-              <td>Mulai Menyusun Draf Laporan Akhir (Bab I-III)</td>
-              <td>Nasrul & Tim Konten</td>
-              <td>
-                Draf awal laporan akhir yang berisi pendahuluan, pelaksanaan,
-                dan hasil.
-              </td>
-            </tr>
-            <tr>
-              <td>Pekan 3 (15-21 Des)</td>
-              <td>Pendampingan & UAT (User Acceptance Test) dengan Mitra</td>
-              <td>Ardian S & Rafly</td>
-              <td>
-                Catatan hasil UAT dari perwakilan siswa/guru di SMK Ganesa.
-              </td>
-            </tr>
-            <tr>
-              <td>Pekan 4 (22-31 Des)</td>
-              <td>Finalisasi Aplikasi (Versi 1.0) & Persiapan Luaran</td>
-              <td>Ardian S & Sunandi</td>
-              <td>
-                Aplikasi versi stabil (1.0) siap rilis. Data untuk pengajuan
-                HAKI disiapkan.
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <a href="./index.html" class="nav-link">Kembali ke Dashboard</a>
-      </div>
-    </div>
-  </body>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tahap 3: Monitoring - PKM CareerConnect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#1e293b',
+                        secondary: '#2563eb',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans">
+
+    <!-- Navbar -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+             <div class="flex items-center gap-2">
+                 <a href="index.html" class="flex items-center gap-2 group">
+                    <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold text-xl group-hover:bg-indigo-700 transition-colors">C</div>
+                    <div>
+                        <h1 class="text-lg font-bold text-slate-900 leading-tight group-hover:text-indigo-600 transition-colors">CareerConnect</h1>
+                        <p class="text-[10px] uppercase tracking-wider text-slate-500 font-semibold">Dashboard PKM</p>
+                    </div>
+                </a>
+            </div>
+            <nav class="flex space-x-4 text-sm font-medium text-slate-600">
+                <a href="index.html" class="flex items-center gap-1 hover:text-indigo-600 transition-colors">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                    Kembali ke Dashboard
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
+        
+        <!-- Page Header -->
+        <div>
+            <div class="flex items-center gap-2 text-sm text-slate-500 mb-2">
+                <a href="index.html" class="hover:text-indigo-600">Home</a>
+                <span>/</span>
+                <span class="text-slate-900 font-medium">Tahap 3</span>
+            </div>
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-900">Monitoring & Pengembangan Lanjutan</h2>
+                    <p class="text-slate-600 mt-1">Periode: <span class="font-semibold text-indigo-600">1 – 31 Desember 2025</span></p>
+                </div>
+                <div class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-sm font-medium">
+                    Status: Selesai
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Card -->
+        <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+            <div class="p-6 border-b border-slate-200 bg-slate-50 flex justify-between items-center">
+                <h3 class="font-bold text-lg text-slate-800">Tugas & Tanggung Jawab</h3>
+            </div>
+            
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-slate-200">
+                    <thead class="bg-slate-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-bold text-slate-500 uppercase tracking-wider w-48">Pekan</th>
+                            <th class="px-6 py-3 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">Tugas Kritis</th>
+                            <th class="px-6 py-3 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">Penanggung Jawab (PIC)</th>
+                            <th class="px-6 py-3 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">Deliverable (Hasil Kerja)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-slate-200 text-sm">
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="px-6 py-4 font-semibold text-slate-900">Pekan 1-2 (1-14 Des)</td>
+                            <td class="px-6 py-4 text-slate-800">Implementasi Perbaikan Aplikasi (Versi Beta)</td>
+                            <td class="px-6 py-4 text-slate-600">Ardian S</td>
+                            <td class="px-6 py-4 text-slate-600">Aplikasi versi Beta dengan perbaikan bug dan penambahan fitur minor berdasarkan feedback.</td>
+                        </tr>
+                         <tr class="bg-indigo-50/30 hover:bg-indigo-50/50 transition-colors">
+                            <td class="px-6 py-4 font-semibold text-indigo-900">Pekan 2 (8-14 Des)</td>
+                            <td class="px-6 py-4 text-slate-800">Mulai Menyusun Draf Laporan Akhir (Bab I-III)</td>
+                            <td class="px-6 py-4 text-slate-600">Nasrul & Tim Konten</td>
+                            <td class="px-6 py-4 text-slate-600">Draf awal laporan akhir yang berisi pendahuluan, pelaksanaan, dan hasil.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="px-6 py-4 font-semibold text-slate-900">Pekan 3 (15-21 Des)</td>
+                            <td class="px-6 py-4 text-slate-800">Pendampingan & UAT (User Acceptance Test) dengan Mitra</td>
+                            <td class="px-6 py-4 text-slate-600">Ardian S & Rafly</td>
+                            <td class="px-6 py-4 text-slate-600">Catatan hasil UAT dari perwakilan siswa/guru di SMK Ganesa.</td>
+                        </tr>
+                        <tr class="bg-green-50/30 hover:bg-green-50/50 transition-colors">
+                            <td class="px-6 py-4 font-semibold text-green-900">Pekan 4 (22-31 Des)</td>
+                            <td class="px-6 py-4 text-slate-800">Finalisasi Aplikasi (Versi 1.0) & Persiapan Luaran</td>
+                            <td class="px-6 py-4 text-slate-600">Ardian S & Sunandi</td>
+                            <td class="px-6 py-4 text-slate-600">Aplikasi versi stabil (1.0) siap rilis. Data untuk pengajuan HAKI disiapkan.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Navigation Footer -->
+        <div class="mt-8 flex justify-between">
+            <a href="tahap2_pelaksanaan.html" class="inline-flex items-center px-4 py-2 border border-slate-300 shadow-sm text-sm font-medium rounded-md text-slate-700 bg-white hover:bg-slate-50">
+                ← Kembali ke Tahap 2
+            </a>
+            <a href="tahap4_pelaporan.html" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 shadow-sm">
+                Lanjut ke Tahap 4 →
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-10 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-slate-500 text-sm">&copy; 2025-2026 Tim PKM-RPL CareerConnect.</p>
+        </div>
+    </footer>
+</body>
 </html>

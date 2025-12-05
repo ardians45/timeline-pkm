@@ -1,387 +1,280 @@
 <!DOCTYPE html>
-<html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Detail Tahap 2: Pelaksanaan PKM</title>
-    <style>
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-          Helvetica, Arial, sans-serif;
-        line-height: 1.6;
-        background-color: #f8f9fa;
-        color: #343a40;
-        margin: 0;
-        padding: 20px;
-      }
-      .container {
-        max-width: 1200px;
-        margin: auto;
-        background: #ffffff;
-        padding: 30px;
-        border-radius: 12px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      }
-      header {
-        text-align: center;
-        border-bottom: 3px solid #28a745;
-        padding-bottom: 20px;
-        margin-bottom: 20px;
-      }
-      h1 {
-        color: #218838;
-        font-size: 2.5em;
-        margin-bottom: 0;
-      }
-      .subtitle {
-        font-size: 1.1em;
-        color: #6c757d;
-        margin-top: 10px;
-      }
-      .phase-header {
-        background-color: #e9ecef;
-        padding: 15px 20px;
-        border-radius: 8px;
-        border-left: 6px solid #28a745;
-        margin-bottom: 25px;
-      }
-      .phase-header h2 {
-        margin: 0;
-        color: #218838;
-        font-size: 1.8em;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-        table-layout: fixed;
-      }
-      th,
-      td {
-        padding: 15px;
-        border: 1px solid #dee2e6;
-        text-align: left;
-        vertical-align: top;
-        word-wrap: break-word;
-      }
-      thead {
-        background-color: #28a745;
-        color: #ffffff;
-        font-size: 1.1em;
-      }
-      tbody tr:nth-child(even) {
-        background-color: #f8f9fa;
-      }
-      .leader-role {
-        background-color: rgba(255, 235, 59, 0.15);
-      }
-      .highlight-task {
-        background-color: rgba(23, 162, 184, 0.1);
-      }
-      .team-members {
-        text-align: center;
-        margin-bottom: 30px;
-        padding: 15px;
-        background-color: #e9ecef;
-        border-radius: 8px;
-      }
-      .team-members h3 {
-        margin-top: 0;
-        color: #0056b3;
-      }
-      .nav-link {
-        display: inline-block;
-        margin-top: 30px;
-        background-color: #6c757d;
-        color: white;
-        padding: 10px 15px;
-        border-radius: 5px;
-        text-decoration: none;
-      }
-      .nav-link:hover {
-        background-color: #5a6268;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <header>
-        <h1>Tahap 2: Pelaksanaan PKM di Lokasi Mitra</h1>
-        <p class="subtitle"><strong>Periode:</strong> 1 – 30 November 2025</p>
-      </header>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tahap 2: Pelaksanaan - PKM CareerConnect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#1e293b',
+                        secondary: '#2563eb',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans">
 
-      <div class="team-members">
-        <h3>Tim Pelaksana</h3>
-        <p>
-          <strong>Koordinator: Ardian S (Ketua)</strong> <br />
-          Rafly (MC), Sunandi (MC), Musa Soleha, Azaria Bunga, Jidan Nugroho,
-          Nasrul, Ridho, Riski, Tnavcky
-        </p>
-      </div>
-
-      <div class="phase">
-        <div class="phase-header">
-          <h2>Jadwal & Pembagian Tugas Pelaksanaan</h2>
+    <!-- Navbar -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+             <div class="flex items-center gap-2">
+                 <a href="index.html" class="flex items-center gap-2 group">
+                    <div class="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center text-white font-bold text-xl group-hover:bg-teal-700 transition-colors">C</div>
+                    <div>
+                        <h1 class="text-lg font-bold text-slate-900 leading-tight group-hover:text-teal-600 transition-colors">CareerConnect</h1>
+                        <p class="text-[10px] uppercase tracking-wider text-slate-500 font-semibold">Dashboard PKM</p>
+                    </div>
+                </a>
+            </div>
+            <nav class="flex space-x-4 text-sm font-medium text-slate-600">
+                <a href="index.html" class="flex items-center gap-1 hover:text-teal-600 transition-colors">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                    Kembali ke Dashboard
+                </a>
+            </nav>
         </div>
-        <table>
-          <thead>
-            <tr>
-              <th style="width: 20%">Periode</th>
-              <th style="width: 30%">Tugas Kritis</th>
-              <th style="width: 30%">Penanggung Jawab (PIC)</th>
-              <th style="width: 20%">Hasil Kerja</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Pekan 1 (1-7 Nov)</strong><br />Persiapan Final</td>
-              <td>
-                Koordinasi teknis (ruangan, listrik, proyektor) dengan pihak
-                sekolah & finalisasi perizinan.
-              </td>
-              <td><strong>Rafly & Musa</strong></td>
-              <td>Checklist kesiapan lokasi & konfirmasi izin tertulis.</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>
-                Finalisasi, cetak, dan penggandaan materi (modul, absensi, form
-                feedback, sertifikat jika ada).
-              </td>
-              <td><strong>Nasrul & Azaria</strong></td>
-              <td>Berkas fisik siap untuk dibagikan ke peserta.</td>
-            </tr>
-            <tr class="highlight-task">
-              <td></td>
-              <td>
-                Menyiapkan daftar pertanyaan kuis interaktif dan pengadaan
-                hadiah (doorprize).
-              </td>
-              <td><strong>Riski & Sunandi</strong></td>
-              <td>5-10 pertanyaan kuis & hadiah siap dibagikan.</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>
-                Menyusun daftar kebutuhan dan survei harga untuk logistik &
-                konsumsi acara.
-              </td>
-              <td><strong>Ridho & Tnavcky</strong></td>
-              <td>Anggaran final untuk konsumsi dan logistik.</td>
-            </tr>
-            <tr>
-              <td><strong>Pekan 2 (8-14 Nov)</strong><br />Persiapan Akhir</td>
-              <td>
-                Membuat materi presentasi dan panduan aplikasi "CareerConnect".
-              </td>
-              <td><strong>PJ Materi:</strong> Nasrul & Jidan</td>
-              <td>Draft materi siap digunakan saat pelatihan.</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>
-                Menyiapkan logistik dan konsumsi acara (makanan, minuman,
-                snack).
-              </td>
-              <td><strong>PJ Logistik:</strong> Ridho & Tnavcky</td>
-              <td>Konsumsi siap disajikan pada hari H.</td>
-            </tr>
-            <tr class="highlight-task">
-              <td></td>
-              <td>
-                Menyiapkan hadiah doorprize dan perlengkapan kuis interaktif.
-              </td>
-              <td><strong>PJ Doorprize:</strong> Riski & Sunandi</td>
-              <td>Hadiah dan perlengkapan kuis siap dibagikan.</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>
-                Gladi bersih & simulasi alur acara (termasuk pembagian peran di
-                rundown).
-              </td>
-              <td>
-                <strong>Jidan Nugroho (Koordinator Gladi)</strong> & Seluruh Tim
-              </td>
-              <td>Catatan evaluasi & perbaikan alur acara.</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>
-                Konfirmasi final H-1 ke pihak sekolah mengenai jumlah peserta
-                dan kesiapan teknis.
-              </td>
-              <td><strong>Rafly</strong></td>
-              <td>Persetujuan akhir dari mitra.</td>
-            </tr>
-            <tr>
-              <td>
-                <strong>Rabu, 26 Nov</strong><br /><strong>HARI-H ACARA</strong>
-              </td>
-              <td>Pelaksanaan Acara Puncak di SMK Makarya sesuai rundown.</td>
-              <td><strong>Seluruh Tim</strong> (sesuai peran di rundown)</td>
-              <td>Acara berjalan lancar, tujuan tercapai.</td>
-            </tr>
-            <tr>
-              <td><strong>Pekan 1 (1-5 Des)</strong><br />Evaluasi Awal</td>
-              <td>
-                Pengumpulan, rekapitulasi, dan digitalisasi data: absensi, form
-                feedback, foto, dan video.
-              </td>
-              <td><strong>Azaria, Ridho, & Tnavcky</strong></td>
-              <td>Folder digital berisi semua dokumentasi & data mentah.</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>
-                Rapat evaluasi internal membahas keberhasilan, kendala, dan
-                analisis data feedback.
-              </td>
-              <td class="leader-role">
-                <strong>Ardian S (Memimpin)</strong>, Nasrul & Jidan (Notulensi
-                & Analisis)
-              </td>
-              <td>Notulen rapat & laporan singkat hasil analisis feedback.</td>
-            </tr>
-            <tr>
-              <td>
-                <strong>Pekan 2 (Draft Laporan Akhir)</strong><br />Tindak
-                Lanjut
-              </td>
-              <td>
-                Menyusun draf Bab Pelaksanaan untuk Laporan Akhir berdasarkan
-                data yang terkumpul.
-              </td>
-              <td><strong>Nasrul</strong></td>
-              <td>Draf Bab III Laporan Akhir.</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>
-                Membuat daftar rekomendasi perbaikan/fitur baru untuk aplikasi
-                "CareerConnect" berdasarkan feedback.
-              </td>
-              <td><strong>Jidan & Sunandi</strong></td>
-              <td>Dokumen rekomendasi teknis untuk Tahap 3.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    </header>
 
-      <div class="phase">
-        <div class="phase-header">
-          <h2>Rundown Acara Puncak - Rabu, 26 November 2025</h2>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
+        
+        <!-- Page Header -->
+        <div>
+            <div class="flex items-center gap-2 text-sm text-slate-500 mb-2">
+                <a href="index.html" class="hover:text-teal-600">Home</a>
+                <span>/</span>
+                <span class="text-slate-900 font-medium">Tahap 2</span>
+            </div>
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-900">Pelaksanaan PKM di Lokasi Mitra</h2>
+                    <p class="text-slate-600 mt-1">Periode: <span class="font-semibold text-teal-600">1 – 30 November 2025</span></p>
+                </div>
+                <div class="inline-flex items-center px-3 py-1 rounded-full bg-teal-100 text-teal-700 text-sm font-medium">
+                    Status: Selesai
+                </div>
+            </div>
         </div>
-        <table>
-          <thead>
-            <tr>
-              <th style="width: 20%">Waktu (WIB)</th>
-              <th style="width: 40%">Kegiatan</th>
-              <th style="width: 40%">Penanggung Jawab (PIC)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>08:00 - 08:30</td>
-              <td>
-                Persiapan Tim & Pengecekan Peralatan di Lokasi (Sound,
-                Proyektor, Laptop)
-              </td>
-              <td>
-                <strong>PJ Teknis:</strong> Jidan & Sunandi<br /><strong
-                  >PJ Koordinasi Lokasi:</strong
-                >
-                Rafly
-              </td>
-            </tr>
-            <tr>
-              <td>08:30 - 09:00</td>
-              <td>
-                Registrasi & Pembagian Materi Awal kepada Peserta (Siswa/Guru)
-              </td>
-              <td><strong>PJ Registrasi:</strong> Riski & Tnavcky</td>
-            </tr>
-            <tr>
-              <td>09:00 - 09:10</td>
-              <td>Pembukaan Acara oleh Master of Ceremony (MC)</td>
-              <td><strong>MC:</strong> Rafly & Sunandi</td>
-            </tr>
-            <tr>
-              <td>09:10 - 09:25</td>
-              <td>
-                Sambutan dari Ketua Pelaksana PKM dan Dosen Pembimbing (jika
-                hadir)
-              </td>
-              <td class="leader-role"><strong>Sambutan:</strong> Ardian S</td>
-            </tr>
-            <tr>
-              <td>09:25 - 10:00</td>
-              <td>
-                <strong>Sesi 1:</strong> Pengenalan Program PKM & Pentingnya
-                Keterampilan Digital di Dunia Kerja
-              </td>
-              <td><strong>Penyaji Materi:</strong> MC</td>
-            </tr>
-            <tr>
-              <td>10:00 - 11:00</td>
-              <td>
-                <strong>Sesi 2:</strong> Demo Interaktif & Pelatihan Penggunaan
-                Aplikasi "CareerConnect"
-              </td>
-              <td>
-                <strong>Demonstrator Utama:</strong> Jidan & Nasrul<br />
-                <strong>Penjelas Teknis:</strong>Ardian S<br />
-                <strong>Operator Teknis / Operator Laptop</strong>Sunandi
-              </td>
-            </tr>
-            <tr>
-              <td>11:00 - 11:30</td>
-              <td>Sesi Tanya Jawab (Q&A) Interaktif</td>
-              <td>
-                <strong>Moderator:</strong> Rafly & Sunandi<br /><strong
-                  >Narasumber:</strong
-                >
-                Nasrul & Jidan
-              </td>
-            </tr>
-            <tr>
-              <td>11:30 - 11:45</td>
-              <td>Pengisian Formulir Feedback & Evaluasi Acara</td>
-              <td>
-                <strong>PJ Distribusi & Pengumpulan:</strong> Azaria & Ridho
-              </td>
-            </tr>
-            <tr class="highlight-task">
-              <td>11:45 - 12:00</td>
-              <td>
-                <strong>Sesi Kuis Interaktif & Pembagian Doorprize</strong>
-              </td>
-              <td>
-                <strong>Pemandu Kuis:</strong> Rafly & Sunandi<br /><strong
-                  >PJ Hadiah:</strong
-                >
-                Riski
-              </td>
-            </tr>
-            <tr>
-              <td>12:00 - 12:15</td>
-              <td>Penutupan, Kesimpulan, dan Sesi Foto Bersama</td>
-              <td>
-                <strong>MC:</strong> Rafly & Sunandi<br /><strong
-                  >PJ Dokumentasi:</strong
-                >
-                Azaria & Tnavcky
-              </td>
-            </tr>
-            <tr>
-              <td>12:15 - Selesai</td>
-              <td>Ramah Tamah & Pembagian Konsumsi</td>
-              <td><strong>PJ Logistik & Konsumsi:</strong> Rizky & Ridho</td>
-            </tr>
-          </tbody>
-        </table>
-        <a href="./index.html" class="nav-link">Kembali ke Dashboard</a>
-      </div>
-    </div>
-  </body>
+
+        <!-- Team Info Card -->
+        <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+            <h3 class="text-lg font-bold text-slate-800 mb-4">Tim Pelaksana</h3>
+            <div class="bg-slate-50 rounded-lg p-4 border border-slate-100">
+                <p class="text-slate-700 text-sm leading-relaxed text-center">
+                    <strong class="text-slate-900">Koordinator: Ardian S (Ketua)</strong><br>
+                    Rafly (MC), Sunandi (MC), Musa Soleha, Azaria Bunga, Jidan Nugroho, Nasrul, Ridho, Riski, Tnavcky
+                </p>
+            </div>
+        </div>
+
+        <!-- Task Table -->
+        <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+            <div class="p-6 border-b border-slate-200 bg-slate-50 flex justify-between items-center">
+                <h3 class="font-bold text-lg text-slate-800">Jadwal & Pembagian Tugas</h3>
+                 <div class="flex gap-2 text-xs">
+                    <span class="inline-flex items-center px-2 py-1 rounded bg-teal-100 text-teal-700 font-medium">
+                        <span class="w-2 h-2 bg-teal-500 rounded-full mr-1"></span> Critical Task
+                    </span>
+                </div>
+            </div>
+            
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-slate-200">
+                    <thead class="bg-slate-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-bold text-slate-500 uppercase tracking-wider w-40">Periode</th>
+                            <th class="px-6 py-3 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">Tugas Kritis</th>
+                            <th class="px-6 py-3 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">PIC</th>
+                            <th class="px-6 py-3 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">Hasil Kerja</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-slate-200 text-sm">
+                        <!-- Pekan 1 -->
+                        <tr class="bg-slate-50/50">
+                            <td class="px-6 py-4 font-semibold text-slate-900" rowspan="4">Pekan 1 (1-7 Nov)<br><span class="text-xs font-normal text-slate-500">Persiapan Final</span></td>
+                            <td class="px-6 py-4 text-slate-800">Koordinasi teknis (ruangan, listrik, proyektor) dengan pihak sekolah.</td>
+                            <td class="px-6 py-4 text-slate-600 font-medium">Rafly & Musa</td>
+                            <td class="px-6 py-4 text-slate-600">Checklist kesiapan lokasi & konfirmasi izin.</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 text-slate-800">Finalisasi, cetak, dan penggandaan materi (modul, absensi, sertifikat).</td>
+                            <td class="px-6 py-4 text-slate-600 font-medium">Nasrul & Azaria</td>
+                            <td class="px-6 py-4 text-slate-600">Berkas fisik siap dibagikan.</td>
+                        </tr>
+                        <tr class="bg-teal-50/30">
+                            <td class="px-6 py-4 text-teal-900 font-medium">Menyiapkan daftar pertanyaan kuis & hadiah (doorprize).</td>
+                            <td class="px-6 py-4 text-slate-600 font-medium">Riski & Sunandi</td>
+                            <td class="px-6 py-4 text-slate-600">5-10 pertanyaan & hadiah siap.</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 text-slate-800">Menyusun daftar kebutuhan & survei harga logistik/konsumsi.</td>
+                            <td class="px-6 py-4 text-slate-600 font-medium">Ridho & Tnavcky</td>
+                            <td class="px-6 py-4 text-slate-600">Anggaran final logistik.</td>
+                        </tr>
+
+                        <!-- Pekan 2 -->
+                         <tr class="bg-slate-50/50 border-t-2 border-slate-100">
+                            <td class="px-6 py-4 font-semibold text-slate-900" rowspan="5">Pekan 2 (8-14 Nov)<br><span class="text-xs font-normal text-slate-500">Persiapan Akhir</span></td>
+                            <td class="px-6 py-4 text-slate-800">Membuat materi presentasi dan panduan aplikasi.</td>
+                            <td class="px-6 py-4 text-slate-600 font-medium">Nasrul & Jidan</td>
+                            <td class="px-6 py-4 text-slate-600">Draft materi siap.</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 text-slate-800">Menyiapkan logistik dan konsumsi acara.</td>
+                            <td class="px-6 py-4 text-slate-600 font-medium">Ridho & Tnavcky</td>
+                            <td class="px-6 py-4 text-slate-600">Konsumsi siap disajikan.</td>
+                        </tr>
+                        <tr class="bg-teal-50/30">
+                            <td class="px-6 py-4 text-teal-900 font-medium">Menyiapkan hadiah doorprize & perlengkapan kuis.</td>
+                            <td class="px-6 py-4 text-slate-600 font-medium">Riski & Sunandi</td>
+                            <td class="px-6 py-4 text-slate-600">Hadiah & kuis siap.</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 text-slate-800">Gladi bersih & simulasi alur acara.</td>
+                            <td class="px-6 py-4 text-slate-600 font-medium">Jidan N (Koord) & Tim</td>
+                            <td class="px-6 py-4 text-slate-600">Catatan evaluasi gladi.</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 text-slate-800">Konfirmasi final H-1 ke pihak sekolah.</td>
+                            <td class="px-6 py-4 text-slate-600 font-medium">Rafly</td>
+                            <td class="px-6 py-4 text-slate-600">Persetujuan akhir mitra.</td>
+                        </tr>
+
+                        <!-- HARI H -->
+                        <tr class="bg-teal-600 text-white">
+                            <td class="px-6 py-4 font-bold border-r border-teal-500">Rabu, 26 Nov<br><span class="text-xs font-normal text-teal-100">HARI-H ACARA</span></td>
+                            <td class="px-6 py-4 font-medium">Pelaksanaan Acara Puncak di SMK Makarya sesuai rundown.</td>
+                            <td class="px-6 py-4 font-medium">Seluruh Tim</td>
+                            <td class="px-6 py-4 font-medium">Acara berjalan lancar.</td>
+                        </tr>
+
+                        <!-- Pasca Acara -->
+                        <tr class="bg-slate-50/50">
+                            <td class="px-6 py-4 font-semibold text-slate-900" rowspan="2">Evaluasi Awal<br><span class="text-xs font-normal text-slate-500">1-5 Des</span></td>
+                            <td class="px-6 py-4 text-slate-800">Rekapitulasi data: absensi, feedback, foto, video.</td>
+                            <td class="px-6 py-4 text-slate-600 font-medium">Azaria, Ridho, Tnavcky</td>
+                            <td class="px-6 py-4 text-slate-600">Folder digital dokumentasi lengkap.</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 text-slate-800">Rapat evaluasi internal & analisis feedback.</td>
+                            <td class="px-6 py-4 text-slate-600 font-medium">Ardian S, Nasrul, Jidan</td>
+                            <td class="px-6 py-4 text-slate-600">Laporan hasil analisis feedback.</td>
+                        </tr>
+                         <tr class="bg-slate-50/50 border-t border-slate-100">
+                            <td class="px-6 py-4 font-semibold text-slate-900" rowspan="2">Tindak Lanjut<br><span class="text-xs font-normal text-slate-500">Draft Laporan</span></td>
+                            <td class="px-6 py-4 text-slate-800">Menyusun draf Bab Pelaksanaan (Laporan Akhir).</td>
+                            <td class="px-6 py-4 text-slate-600 font-medium">Nasrul</td>
+                            <td class="px-6 py-4 text-slate-600">Draf Bab III.</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 text-slate-800">Rekomendasi perbaikan/fitur baru app.</td>
+                            <td class="px-6 py-4 text-slate-600 font-medium">Jidan & Sunandi</td>
+                            <td class="px-6 py-4 text-slate-600">Rekomendasi teknis Tahap 3.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Rundown Table -->
+        <div class="bg-slate-900 rounded-xl shadow-lg overflow-hidden text-white">
+            <div class="p-6 border-b border-slate-700 bg-slate-800 flex justify-between items-center">
+                <h3 class="font-bold text-lg text-white flex items-center gap-2">
+                    <svg class="w-5 h-5 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    Rundown Acara Puncak (26 Nov 2025)
+                </h3>
+            </div>
+            
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-slate-700">
+                    <thead class="bg-slate-800/50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-bold text-slate-400 uppercase tracking-wider w-32">Waktu</th>
+                            <th class="px-6 py-3 text-left text-xs font-bold text-slate-400 uppercase tracking-wider">Kegiatan</th>
+                            <th class="px-6 py-3 text-left text-xs font-bold text-slate-400 uppercase tracking-wider">PIC</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-700 text-sm">
+                        <tr class="hover:bg-slate-800/50 transition-colors">
+                            <td class="px-6 py-4 text-teal-400 font-mono">08:00</td>
+                            <td class="px-6 py-4">Persiapan Tim & Pengecekan Peralatan</td>
+                            <td class="px-6 py-4 text-slate-300">Jidan, Sunandi, Rafly</td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/50 transition-colors">
+                            <td class="px-6 py-4 text-teal-400 font-mono">08:30</td>
+                            <td class="px-6 py-4">Registrasi & Pembagian Materi</td>
+                            <td class="px-6 py-4 text-slate-300">Riski & Tnavcky</td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/50 transition-colors">
+                            <td class="px-6 py-4 text-teal-400 font-mono">09:00</td>
+                            <td class="px-6 py-4">Pembukaan (MC)</td>
+                            <td class="px-6 py-4 text-slate-300">Rafly & Sunandi</td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/50 transition-colors">
+                            <td class="px-6 py-4 text-teal-400 font-mono">09:10</td>
+                            <td class="px-6 py-4">Sambutan Ketua Pelaksana</td>
+                            <td class="px-6 py-4 text-slate-300">Ardian S</td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/50 transition-colors">
+                            <td class="px-6 py-4 text-teal-400 font-mono">09:25</td>
+                            <td class="px-6 py-4 font-semibold text-white">Sesi 1: Materi Pengenalan Minat Bakat</td>
+                            <td class="px-6 py-4 text-slate-300">MC (Rafly & Sunandi)</td>
+                        </tr>
+                        <tr class="bg-teal-900/20 hover:bg-teal-900/30 transition-colors">
+                            <td class="px-6 py-4 text-teal-400 font-mono">10:00</td>
+                            <td class="px-6 py-4 font-bold text-white">Sesi 2: Demo Aplikasi & Pelatihan</td>
+                            <td class="px-6 py-4 text-slate-300">Jidan, Nasrul, Ardian, Sunandi</td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/50 transition-colors">
+                            <td class="px-6 py-4 text-teal-400 font-mono">11:00</td>
+                            <td class="px-6 py-4">Tanya Jawab (Q&A)</td>
+                            <td class="px-6 py-4 text-slate-300">Moderator & Narasumber</td>
+                        </tr>
+                         <tr class="hover:bg-slate-800/50 transition-colors">
+                            <td class="px-6 py-4 text-teal-400 font-mono">11:30</td>
+                            <td class="px-6 py-4">Pengisian Feedback</td>
+                            <td class="px-6 py-4 text-slate-300">Azaria & Ridho</td>
+                        </tr>
+                        <tr class="bg-amber-900/20 hover:bg-amber-900/30 transition-colors">
+                            <td class="px-6 py-4 text-amber-400 font-mono">11:45</td>
+                            <td class="px-6 py-4 font-bold text-white">Kuis Berhadiah & Doorprize</td>
+                            <td class="px-6 py-4 text-slate-300">MC & Riski</td>
+                        </tr>
+                         <tr class="hover:bg-slate-800/50 transition-colors">
+                            <td class="px-6 py-4 text-teal-400 font-mono">12:00</td>
+                            <td class="px-6 py-4">Penutupan & Foto Bersama</td>
+                            <td class="px-6 py-4 text-slate-300">Semua Tim</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Navigation Footer -->
+        <div class="mt-8 flex justify-between">
+            <a href="tahap1_proposal.html" class="inline-flex items-center px-4 py-2 border border-slate-300 shadow-sm text-sm font-medium rounded-md text-slate-700 bg-white hover:bg-slate-50">
+                ← Kembali ke Tahap 1
+            </a>
+            <a href="tahap3_monitoring.html" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-teal-600 hover:bg-teal-700 shadow-sm">
+                Lanjut ke Tahap 3 →
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-10 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-slate-500 text-sm">&copy; 2025-2026 Tim PKM-RPL CareerConnect.</p>
+        </div>
+    </footer>
+</body>
 </html>
